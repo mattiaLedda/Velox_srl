@@ -6,7 +6,7 @@ function CenterHeader() {
                 LOREM <br /> IPSUM  <br /> DOLOR
             </div>
             <div className="center-head-right">
-                <h4 className="center-top">Lorem ipsum dolor sit amet  <br /> eccetera eccetera lorem ipsum <br /> dolor sit amet lorem </h4>
+                <h4 className="center-top">Lorem ipsum doolor sit amet  <br /> eccetera eccetera lorem ipsum <br /> dolor sit amet lorem </h4>
                 <button onClick={fuckyou} className="p-3 text-white border center-button rounded">Scopri di più</button>
             </div>
         </div>
