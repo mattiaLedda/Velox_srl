@@ -5,7 +5,7 @@ function CardCenter(){
                 Lorem imsum dolor
             </h3>
             <p className="text-align-center">Lorem ipsum dolor sit amet lorem ipsum  dolor 
-            Lorem ipsum dolor sit amet lorem ipsum dolor
+            Lorem ipsum dolor sit amet lorrem ipsum dolor
             Lorem ipsum dolor sit amet
             Lorem ipsum dolor sit amet lorem ipsum  dolor 
             Lorem ipsum dolor sit amet
