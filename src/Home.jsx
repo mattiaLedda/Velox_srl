@@ -6,6 +6,7 @@ import Slider from './Slider'
 import BottomCards from './BottomCards'
 import TopFooter from './TopFooter'
 import BottomFooter from './BottomFooter'
+import Lines from './Lines'
 
 function Home() {
 
@@ -14,6 +15,7 @@ function Home() {
       <Header/>
       <CenterCards/>
       <Slider/>
+      <Lines/>
       <BottomCards/>
       <TopFooter/>
       <BottomFooter/>

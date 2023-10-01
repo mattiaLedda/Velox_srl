@@ -10,7 +10,7 @@ function Links(){
             <div>
             <div className="d-flex flex-row align-items-center justify-content-center align-center">
                 <img
-                    src="../public/assets/logo.svg.png"
+                    src="../public/assets/logo.png"
                     className="logo1"
                     alt="Logo"
                 />

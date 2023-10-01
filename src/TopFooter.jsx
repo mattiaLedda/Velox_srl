@@ -7,7 +7,7 @@ function TopFooter() {
 
             <div className="d-flex flex-row nav-buttons">
                 <button id="button1" className="p-2">Contattaci</button>
-                <button className="button rounded p-2" id="button2">Preventivo</button>
+                <button className="button   p-2" id="button2">Preventivo</button>
             </div>
 
         </div>
