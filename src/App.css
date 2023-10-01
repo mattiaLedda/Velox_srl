@@ -596,7 +596,7 @@ a:hover::after {
   align-items: flex-start;
 }
 #poli-p{
-  font-weight: 400;
+  font-weight: 300;
   font-size: 18px;
   line-height: 30px;
   margin-top: 50px;
@@ -612,4 +612,25 @@ a:hover::after {
   background-color: transparent;
   padding: 8px;
   margin-top: 20px;
+}
+.threecard{
+  padding: 80px;
+  gap: 30px
+}
+.three-p{
+  width: 90%;
+}
+.three-cont{
+  margin-top: 60px;
+}
+.three-center{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.three-wrap{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.three-title{
+  font-size: 38px;
 }
