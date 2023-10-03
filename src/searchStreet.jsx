@@ -18,7 +18,7 @@ function SearchStreet() {
           const coordinates = data.features[0].center;
 
           // Centra la mappa sulle coordinate trovate
-          map.flyTo({ center: coordinates, zoom: 28 });
+          map.flyTo({ center: coordinates, zoom: 19 });
         })
         .catch(error => {
           console.error('Errore nella ricerca della via:', error);
@@ -30,7 +30,7 @@ function SearchStreet() {
   const initializeMap = () => {
     const newMap = new mapboxgl.Map({
       container: 'map', // ID del container della mappa
-      style: 'mapbox://styles/mapbox/satellite-v9', // Stile della mappa (puoi cambiare lo stile)
+      style: 'mapbox://styles/mapbox/satellite-streets-v12', // Stile della mappa (puoi cambiare lo stile)
       center: [-74.006, 40.7128], // Centro della mappa
       zoom: 10, // Zoom iniziale
     });
