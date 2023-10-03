@@ -6,11 +6,15 @@ import Lines from "./Lines"
 import Maps from "./Maps"
 import MapTilerMap from "./MapTilerMap"
 import TopFooter from "./TopFooter"
+import SearchStreet from "./searchStreet"
+import GoogleMaps from "./GoogleMaps"
 
 function Preventivo(){
     return(
         <div>
             <Header/>
+            {/* <GoogleMaps/> */}
+            <SearchStreet/>
             <MapTilerMap/>
             <Lines/>
             <HalfPicture/>
