@@ -8,6 +8,8 @@ import MapTilerMap from "./MapTilerMap"
 import TopFooter from "./TopFooter"
 import SearchStreet from "./searchStreet"
 import GoogleMaps from "./GoogleMaps"
+import Form from "./Form"
+import StepperProva from "./StepperProva"
 
 function Preventivo(){
     return(
@@ -15,6 +17,8 @@ function Preventivo(){
             <Header/>
             {/* <GoogleMaps/> */}
             <SearchStreet/>
+            {/* <Form/> */}
+            <StepperProva/>
             <MapTilerMap/>
             <Lines/>
             <HalfPicture/>

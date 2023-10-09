@@ -3,13 +3,18 @@ import mapboxgl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 import * as turf from '@turf/turf';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2bGVvIiwiYSI6ImNsbjdtcDNibzB6NW0ydG1ua2x0Y2I4cHkifQ.YJDbsqfZnH5XzUqa5mXf8w'; // Sostituisci con il tuo access token
 
 function SearchStreet() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [map, setMap] = useState(null);
   const [area, setArea] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   // Funzione per cercare una via
   const searchStreet = () => {
@@ -58,6 +63,23 @@ function SearchStreet() {
     newMap.on('draw.update', updateArea);
 
     setMap(newMap);
+
+    // Aggiungi il componente MapboxGeocoder per i suggerimenti di ricerca in tempo reale
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      placeholder: 'Inserisci il nome della via',
+    });
+
+    newMap.addControl(geocoder);
+
+    geocoder.on('result', (event) => {
+      // Quando viene selezionato un suggerimento di ricerca, ottieni le coordinate del risultato
+      const coordinates = event.result.center;
+
+      // Centra la mappa sulle coordinate trovate
+      newMap.flyTo({ center: coordinates, zoom: 19 });
+    });
   };
 
   function updateArea(e) {
@@ -77,11 +99,32 @@ function SearchStreet() {
     <div className="search-street-page">
       <h1>Cerca una via</h1>
       <div className="search-box">
-        <input
-          type="text"
+        <AsyncTypeahead
+          id="searchInput"
+          labelKey="place_name"
           placeholder="Inserisci il nome della via"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onSearch={(query) => {
+            // Esegui una ricerca in tempo reale e imposta i risultati in `searchResults`
+            setSearchResults([]);
+            fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${mapboxgl.accessToken}`)
+              .then(response => response.json())
+              .then(data => {
+                setSearchResults(data.features);
+              })
+              .catch(error => {
+                console.error('Errore nella ricerca della via:', error);
+              });
+          }}
+          options={searchResults}
+          onChange={(selected) => {
+            // Quando viene selezionato un suggerimento di ricerca, ottieni le coordinate del risultato
+            if (selected && selected.length > 0) {
+              const coordinates = selected[0].center;
+
+              // Centra la mappa sulle coordinate trovate
+              map.flyTo({ center: coordinates, zoom: 19 });
+            }
+          }}
         />
         <button onClick={searchStreet}>Cerca</button>
       </div>
