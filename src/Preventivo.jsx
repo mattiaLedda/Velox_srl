@@ -7,19 +7,17 @@ import Maps from "./Maps"
 import MapTilerMap from "./MapTilerMap"
 import TopFooter from "./TopFooter"
 import SearchStreet from "./searchStreet"
-import GoogleMaps from "./GoogleMaps"
 import Form from "./Form"
 import StepperProva from "./StepperProva"
+import MapComponent from "./Maps2"
 
 function Preventivo(){
     return(
         <div>
             <Header/>
             {/* <GoogleMaps/> */}
-            <SearchStreet/>
-            {/* <Form/> */}
-            <StepperProva/>
-            <MapTilerMap/>
+            
+            <MapComponent/>
             <Lines/>
             <HalfPicture/>
             <Divided/>
