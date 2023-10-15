@@ -634,3 +634,17 @@ a:hover::after {
 .three-title{
   font-size: 38px;
 }
+
+.homelink{
+  transition: all 0.4s;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+.homelink:hover{
+  background-color: white;
+  border-bottom: 0px;
+}
+.homelink::after{
+  background: transparent;
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 function LeftTop() {
     return (
         <div className="d-flex flex-row align-items-center text-white lefttop">
+            <Link className="homelink" to="/">
             <div className="d-flex flex-row align-items-center">
                 <img
                     src="../public/assets/logo.png"
@@ -15,6 +16,7 @@ function LeftTop() {
                     alt="Logo"
                 />
             </div>
+            </Link>
 
             <div className="d-flex flex-row link-cont">
                 <Link className="link linktop">Azienda</Link>
