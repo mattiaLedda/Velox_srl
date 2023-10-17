@@ -1,3 +1,4 @@
+import threeparag from "../threeparag"
 import BottomFooter from "./BottomFooter"
 import MidPoli from "./MidPoli"
 import Header from "./PoliHeader"
@@ -8,7 +9,7 @@ function Poliuree(){
     return(
         <div>
             <Header/>
-            <ThreePar/>
+            <ThreePar icon={threeparag.first.icon} title={threeparag.first.title} text={threeparag.first.text}/>
             <MidPoli/>
             <TopFooter/>
             <BottomFooter/>

@@ -12,6 +12,8 @@ import StepperProva from "./StepperProva"
 import MapComponent from "./Maps2"
 import Paragraph from "./Paragraph"
 import paragraphs from "../paragraphs"
+import ImageParagraph from "./ImageParagraph"
+import imagepar from "../imagepar"
 
 function Preventivo(){
     return(
@@ -24,6 +26,7 @@ function Preventivo(){
             <HalfPicture/>
             <Divided/>
             <Paragraph title={paragraphs.preventivo.title} text={paragraphs.preventivo.text}/>
+            <ImageParagraph title={imagepar.preve.title} text={imagepar.preve.text}/>
             <TopFooter/>
             <BottomFooter/>
         </div>
