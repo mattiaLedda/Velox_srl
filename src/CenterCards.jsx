@@ -7,7 +7,7 @@ function CenterCards() {
       <p className="custom-text overflow-hidden">
         VELOX VELOX VELOX VELOX VELOX VELOX VELOX VELOX VELOX
       </p>
-      <div className="card-wrapper row justify-content-center w-100">
+      <div className="card-wrapper d-flex flex-row flex-wrap justify-content-center w-100">
         <div className="col-md-5 mb-4">
           <CardCenter />
         </div>
