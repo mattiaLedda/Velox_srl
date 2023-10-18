@@ -1,72 +1,116 @@
-import { useState } from 'react';
-import { GoogleMap, LoadScript, Marker, DrawingManager } from '@react-google-maps/api';
-
-const containerStyle = {
-  width: '100%',
-  height: '500px',
-};
-
-const center = {
-  lat: 40.7128, // Latitudine del centro della mappa
-  lng: -74.006, // Longitudine del centro della mappa
-};
-
-const options = {
-  mapTypeId: 'satellite', // Imposta il tipo di mappa su "satellite" per la vista satellitare
-};
+import React, { useState, useEffect } from 'react';
 
 function GoogleMaps() {
-  const [markers, setMarkers] = useState([]);
-  const [area, setArea] = useState(null);
+  const [map, setMap] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [polygon, setPolygon] = useState(null);
+  const [polygonArea, setPolygonArea] = useState(0);
+  const [autocomplete, setAutocomplete] = useState(null); // Aggiunto stato per l'autocomplete
 
-  const onMapLoad = (map) => {
-    // L'API di Google Maps è stata caricata e la mappa è pronta per essere utilizzata
-    // Puoi eseguire qui le operazioni che richiedono l'API
-    console.log('Google Maps API caricata con successo!', map);
-  };
+  useEffect(() => {
+    const initializeMap = () => {
+      const map = new window.google.maps.Map(document.getElementById('map'), {
+        center: { lat: 40.7128, lng: -74.006 },
+        zoom: 10,
+        mapTypeId: 'satellite',
+      });
 
-  const onMapClick = (e) => {
-    setMarkers([...markers, e.latLng]);
-  };
+      // const placesService = new window.google.maps.places.PlacesService(map);
 
-  const onPolygonComplete = (polygon) => {
-    // Calcola l'area del poligono utilizzando il percorso delle coordinate dei marker
-    const path = polygon.getPath();
+      const dm = new window.google.maps.drawing.DrawingManager({
+        drawingControl: true,
+        drawingControlOptions: {
+          position: window.google.maps.ControlPosition.TOP_CENTER,
+          drawingModes: [window.google.maps.drawing.OverlayType.POLYGON],
+        },
+      });
+
+      dm.setMap(map);
+
+      window.google.maps.event.addListener(dm, 'overlaycomplete', (event) => {
+        if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
+          if (polygon) {
+            polygon.setMap(null);
+          }
+          setPolygon(event.overlay);
+          calculateArea(event.overlay.getPath());
+        }
+      });
+
+      // Inizializza l'autocomplete
+      const input = document.getElementById('search-input');
+      const options = {
+        types: ['geocode'],
+      };
+      const autocomplete = new window.google.maps.places.Autocomplete(input, options);
+      setAutocomplete(autocomplete);
+
+      setMap(map);
+    };
+
+    const loadGoogleMapsScript = () => {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCYoxmzxtoNKjPT4Reh0zhVl3KgSJ4D1Jg&libraries=drawing,places&callback=initMap`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        window.initMap = initializeMap;
+      };
+    };
+
+    loadGoogleMapsScript();
+  }, []);
+
+  const calculateArea = (path) => {
     const area = window.google.maps.geometry.spherical.computeArea(path);
-    setArea(area);
+    setPolygonArea(area);
+  };
+
+  const handleSearch = () => {
+    if (map && autocomplete) {
+      const place = autocomplete.getPlace();
+      if (place.geometry && place.geometry.location) {
+        map.setCenter(place.geometry.location);
+        map.setZoom(20);
+      }
+    }
+  };
+
+  const clearPolygon = () => {
+    if (polygon) {
+      polygon.setMap(null);
+      setPolygon(null);
+      setPolygonArea(0);
+    }
   };
 
   return (
-    <LoadScript
-      googleMapsApiKey="AIzaSyDHMFLWSCT53eOuuunr-n8Berat6tgL0Kc"
-      onLoad={onMapLoad} // Aggiungi questa callback per gestire il caricamento dell'API
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        options={options}
-        onClick={onMapClick}
-      >
-        {markers.map((marker, index) => (
-          <Marker key={index} position={marker} />
-        ))}
-
-        <DrawingManager
-          onPolygonComplete={onPolygonComplete}
-          drawingControlOptions={{
-            position: window.google.maps.ControlPosition.TOP_CENTER,
-            drawingModes: [window.google.maps.drawing.OverlayType.POLYGON],
-          }}
+    <div className="search-street-page">
+      <h1>Cerca una via</h1>
+      <div className="search-box">
+        <input
+          type="text"
+          id="search-input" // Assicurati che l'ID sia "search-input"
+          placeholder="Inserisci l'indirizzo"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </GoogleMap>
-
-      {area && (
-        <div>
-          <p>Area del poligono: {area.toFixed(2)} metri quadrati</p>
+        <button onClick={handleSearch}>Cerca</button>
+      </div>
+      <div id="map" className="map"></div>
+      {polygonArea > 0 && (
+        <div className="tot-area">
+          <p>Area del poligono: {polygonArea.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri quadrati</p>
         </div>
       )}
-    </LoadScript>
+      {polygon && (
+        <div className="clear-poly-div">
+          <button onClick={clearPolygon} className="clear-poly">Cancella Poligono</button>
+        </div>
+      )}
+    </div>
   );
 }
 

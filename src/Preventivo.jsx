@@ -15,11 +15,12 @@ function Preventivo(){
     return(
         <div>
             <Header/>
-            {/* <GoogleMaps/> */}
-            <SearchStreet/>
+            <GoogleMaps/>
+
+            {/* <SearchStreet/> */}
             {/* <Form/> */}
             <StepperProva/>
-            <MapTilerMap/>
+            {/* <MapTilerMap/> */}
             <Lines/>
             <HalfPicture/>
             <Divided/>
