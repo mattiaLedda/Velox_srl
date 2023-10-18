@@ -1,17 +1,13 @@
 function SubHeader() {
     return (
-        <div  id="subheader" className="w-100 d-flex flex-row justify-content-center">
-            <div  class="iconpair text-center d-flex flex-column  justify-content-center align-items-center">
-                <i class="fa-solid fa-truck-moving"></i>
-                <h5 className="subicon">Lorem</h5>
-            </div>
-            <div  class="iconpair text-center d-flex flex-column  justify-content-center align-items-center">
-                <i class="fa-solid fa-screwdriver-wrench"></i>
-                <h5 className="subicon">Ipsum</h5>
-            </div>
-            <div class="iconpair text-center d-flex flex-column justify-content-center  align-items-center">
-                <i class="fa-solid fa-ruler-combined"></i>
-                <h5 className="subicon">Lorem</h5>
+        <div id="subheader">
+            <p className="topfootertext mr-5">
+                Lorem ipsum dolor sit amet dolor amet join today bitch fuck goin on in the buildin right now Lorem ipsum dolor sit amet dolor amet join today bitch dolor 
+            </p>
+
+            <div className="d-flex flex-row nav-buttons">
+                <button id="button1" className="p-2">Contattaci</button>
+                <button className="button   p-2" id="button2">Preventivo</button>
             </div>
 
         </div>

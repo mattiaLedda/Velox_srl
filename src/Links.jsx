@@ -3,9 +3,8 @@ function Links(){
     return(
         <div className="d-flex flex-row align-items-center links">
             <div className="text-white linkgroup">
+                <Link className="footerlink">Home</Link>
                 <Link className="footerlink">Azienda</Link>
-                <Link className="footerlink">Tetti</Link>
-                <Link className="footerlink">Poliuree</Link>
             </div>
             <div>
             <div className="d-flex flex-row align-items-center justify-content-center align-center">
@@ -14,13 +13,16 @@ function Links(){
                     className="logo1"
                     alt="Logo"
                 />
-                <h6 className="ms-2 text-white">LOGO</h6>
+                <img
+                        src="../public/assets/logo2.png"
+                        className="logo22"
+                        alt="Logo"
+                    />
             </div>
             </div>
             <div  className="text-white linkgroup">
                 <Link className="footerlink">Preventivo</Link>
-                <Link className="footerlink">Contatti</Link>
-                <Link className="footerlink">Ultimo</Link>
+                <Link className="footerlink">Poliuree</Link>
             </div>
         </div>
     )

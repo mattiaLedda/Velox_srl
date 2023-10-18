@@ -7,10 +7,10 @@
 */
 
 .logo {
-  height: 75px;
+  height: 63px;
 }
 .logo2{
-  height: 40px
+  height: 32px
 }
 
 #root {
@@ -19,7 +19,7 @@
 }
 
 .link-cont {
-  gap: 10px;
+  gap: 30px;
 }
 
 .nav-buttons {
@@ -43,7 +43,7 @@
   background: white;
   content: '';
   mix-blend-mode: color-burn;
-  border-radius: 40px;
+  border-radius: 8px;
 }
 
 .button {
@@ -93,7 +93,16 @@
   width: 100%;
   z-index: 3;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  gap: 200px;
+  gap: 100px;
+  font-weight: 100;
+
+  margin-top: 100px;
+  background: linear-gradient(to right, #08569c,#48a5de);
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .subicon{
   font-size: 25px;
@@ -214,7 +223,8 @@ button:hover {
 
 button {
   transition: all 0.3s;
-  border-radius: 40px;
+  border-radius: 8px;
+  font-size: 15px;
   
 }
 
@@ -222,22 +232,7 @@ a:hover {
   border-bottom: 3px solid linear-gradient(to right, #3f79b9, black);
 }
 
-a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  /* Altezza del bordo inferiore */
-  background: linear-gradient(to right, #3f79b9, rgb(255, 234, 196));
-  /* Gradient del bordo inferiore */
-  transform: scaleX(0);
-  /* Inizialmente, il bordo ha larghezza zero */
-  transform-origin: bottom;
-  /* Cambiato da bottom left a bottom right */
-  transition: transform 0.3s ease;
-}
+
 
 a {
   transition: all 0.3s;
@@ -445,7 +440,7 @@ a:hover::after {
 }
 
 .linktop{
-  font-size: 20px;
+  font-size: 17px;
   color:#aad3ff ;
   font-weight: 400;
 }
@@ -647,4 +642,46 @@ a:hover::after {
 }
 .homelink::after{
   background: transparent;
+}
+.link-cont .dropdown {
+  position: relative;
+}
+
+.linktop.dropdown-toggle {
+  margin-bottom: 0;  /* Rimuove il margine inferiore */
+}
+
+.dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  margin-top: 0;  /* Assicurati che non ci sia spazio tra il link e il menu a tendina */
+  border-top: none;  /* Rimuove il bordo superiore per un passaggio più fluido */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.linktop.dropdown-toggle::after {
+  margin-top: 0px; /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
+  transform: rotate(90deg);
+}
+
+/* Ruota la freccia di 90 gradi quando si fa hover sul link */
+.dropdown:hover .linktop.dropdown-toggle::after {
+  transform: rotate(0deg);
+}
+.linktop.dropdown-toggle::after{
+  transition: all 0.2s;
+}
+.linktop.dropdown-toggle::after {
+  position: relative;
+  top: 2px;  /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
+}
+.logo22{
+  height: 20px;
+}
+.dropdown-item:hover{
+  color:#4495db;
 }

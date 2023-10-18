@@ -4,29 +4,71 @@ function LeftTop() {
     return (
         <div className="d-flex flex-row align-items-center text-white lefttop">
             <Link className="homelink" to="/">
-            <div className="d-flex flex-row align-items-center">
-                <img
-                    src="../public/assets/logo.png"
-                    className="logo"
-                    alt="Logo"
-                />
-                <img
-                    src="../public/assets/logo2.png"
-                    className="logo2"
-                    alt="Logo"
-                />
-            </div>
+                <div className="d-flex flex-row align-items-center">
+                    <img
+                        src="../public/assets/logo.png"
+                        className="logo"
+                        alt="Logo"
+                    />
+                    <img
+                        src="../public/assets/logo2.png"
+                        className="logo2"
+                        alt="Logo"
+                    />
+                </div>
             </Link>
 
             <div className="d-flex flex-row link-cont">
-                <Link className="link linktop">Azienda</Link>
-                <Link className="link linktop" to="/tegole">Tetti</Link>
-                <Link className="link linktop">Insonorizzazione</Link>
-                <Link className="link linktop" to="/poliuree">Poliuree</Link>
-                <Link className="link linktop" to="/preventivo">Preventivo</Link>
+                <div className="dropdown">
+                    <Link className="link linktop dropdown-toggle" data-toggle="dropdown">Azienda</Link>
+                    <div className="dropdown-menu">
+                        <Link className="dropdown-item" to="/">Home</Link>
+                        <Link className="dropdown-item" to="/sottoservizio2">Sottoservizio 2</Link>
+                    </div>
+                </div>
+
+                <div className="dropdown">
+                    <Link className="link linktop dropdown-toggle" to="/tegole" data-toggle="dropdown">Servizi</Link>
+                    <div className="dropdown-menu">
+                        <Link className="dropdown-item" to="/coppi">Coppi</Link>
+                        <Link className="dropdown-item" to="/marsigliesi">Tegole marsigliesi</Link>
+                        <Link className="dropdown-item" to="/portoghesi">Tegole portoghesi</Link>
+                        <Link className="dropdown-item" to="/coibentati">Pannelli coibentati</Link>
+                        <Link className="dropdown-item" to="/lamiera">Lamiera</Link>
+                        <Link className="dropdown-item" to="/lineevita">Linee vita</Link>
+                        <Link className="dropdown-item" to="/struttura">Struttura in legno</Link>
+                        <Link className="dropdown-item" to="/cappotto">Cappotto termico</Link>
+                        <Link className="dropdown-item" to="/insonorizzazione">Insonorizzazione</Link>
+
+                    </div>
+                </div>
+
+                <div className="dropdown">
+                    <Link className="link linktop dropdown-toggle" data-toggle="dropdown">Portfolio</Link>
+                    <div className="dropdown-menu">
+                        <Link className="dropdown-item" to="/sottoservizio5">Sottoservizio 5</Link>
+                        <Link className="dropdown-item" to="/sottoservizio6">Sottoservizio 6</Link>
+                    </div>
+                </div>
+
+                <div className="dropdown">
+                    <Link className="link linktop dropdown-toggle" to="/poliuree" data-toggle="dropdown">Poliuree</Link>
+                    <div className="dropdown-menu">
+                        <Link className="dropdown-item" to="/sottoservizio7">Sottoservizio 7</Link>
+                        <Link className="dropdown-item" to="/sottoservizio8">Sottoservizio 8</Link>
+                    </div>
+                </div>
+
+                <div className="dropdown">
+                    <Link className="link linktop dropdown-toggle" to="/preventivo" data-toggle="dropdown">Preventivo</Link>
+                    <div className="dropdown-menu">
+                        <Link className="dropdown-item" to="/sottoservizio9">Sottoservizio 9</Link>
+                        <Link className="dropdown-item" to="/sottoservizio10">Sottoservizio 10</Link>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default LeftTop;

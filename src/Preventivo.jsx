@@ -14,19 +14,19 @@ import Paragraph from "./Paragraph"
 import paragraphs from "../paragraphs"
 import ImageParagraph from "./ImageParagraph"
 import imagepar from "../imagepar"
+import ProductsPage1 from "./ProductsPage1"
+import { useEffect } from "react"
 
 function Preventivo(){
+    
     return(
         <div>
             <Header/>
             {/* <GoogleMaps/> */}
-            
             <MapComponent/>
             <Lines/>
             <HalfPicture/>
             <Divided/>
-            <Paragraph title={paragraphs.preventivo.title} text={paragraphs.preventivo.text}/>
-            <ImageParagraph title={imagepar.preve.title} text={imagepar.preve.text}/>
             <TopFooter/>
             <BottomFooter/>
         </div>

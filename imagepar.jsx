@@ -1,8 +1,4 @@
 const imagepar = {
-    preve: {
-        title: "Lorem ipsum",
-        text: "Lorem ipsum lorem dolo sit amet lorem ipsum dolor sit lorem ipsum Lorem ipsum lorem dolo sit amet lorem ipsum dolor sit lorem ipsum Lorem ipsum lorem dolo sit amet lorem ipsum dolor sit lorem ipsum  Lorem ipsum lorem dolo sit amet lorem ipsum dolor sit lorem ipsum"
-    },
     marsigliesi:{
         title:"Tegole Marsigliesi",
         text:"Se cercate resistenza e stile per il vostro tetto, le tegole marsigliesi sono la risposta. Progettate per resistere alle condizioni più difficili, la loro forma ondulata previene infiltrazioni, mentre la tonalità rossastra dà un tocco distintivo. Con una durata che supera il secolo, rappresentano un investimento sicuro e duraturo. Il nostro servizio garantisce installazione e manutenzione di alta qualità. Affidatevi a noi per un tetto che combina tradizione, funzionalità ed estetica. Scegliete la sicurezza delle tegole marsigliesi."
