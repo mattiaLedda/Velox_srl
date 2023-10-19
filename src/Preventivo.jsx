@@ -24,7 +24,7 @@ function Preventivo(){
             {/* <MapTilerMap/> */}
             {/* <GoogleMaps/> */}
             
-            <MapComponent/>
+            {/* <MapComponent/> */}
             <Lines/>
             <HalfPicture/>
             <Divided/>
