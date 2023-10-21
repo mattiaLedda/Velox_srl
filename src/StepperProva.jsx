@@ -5,11 +5,12 @@ import Step from "@mui/material/Step";
 import StepButton from "@mui/material/StepButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import FormControl from "@mui/material/FormControl";
-import Input from "@mui/material/Input";
-import InputLabel from "@mui/material/InputLabel";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
+import { RichiestaPrev } from "../public/model/RichiestaPrev";
+import Step1 from "./Step1";
+import Step2 from "./Step2";
+import Step3 from "./Step3";
+import Step4 from "./Step4";
+import StepFinal from "./StepFinal";
 
 const steps = [
   "Info edificio",
@@ -21,6 +22,7 @@ const steps = [
 export default function StepperProva() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const [preventivo, setPreventivo] = React.useState(new RichiestaPrev());
 
   const totalSteps = () => {
     return steps.length;
@@ -41,9 +43,7 @@ export default function StepperProva() {
   const handleNext = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
+        ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
 
     setActiveStep(newActiveStep);
@@ -57,66 +57,34 @@ export default function StepperProva() {
     setActiveStep(step);
   };
 
+  const handleStep1Complete = (infoEdificio) => {
+    // Salva i dati del passo 1 (infoEdificio) nell'oggetto preventivo
+    setPreventivo({ ...preventivo, infoEdificio });
+  };
+
+  const handleStep2Complete = (infoTetto) =>{
+    setPreventivo({...preventivo, infoTetto})
+  }
+
+  const handleStep3Complete = (infoUser) =>{
+    setPreventivo({...preventivo, infoUser})
+  }
+
   const handleComplete = () => {
-    const newCompleted = completed;
+    const newCompleted = { ...completed };
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
+
+    // Stampa l'oggetto preventivo aggiornato passo dopo passo
+    console.log("Passo", activeStep + 1, ":", preventivo);
+
     handleNext();
   };
 
   const handleReset = () => {
     setActiveStep(0);
     setCompleted({});
-  };
-
-  const step1 = () => {
-    return (
-      <div className="container">
-        <div className="">
-        <FormControl variant="standard" sx={{ m: 1, mt: 3, width: "70%" }}>
-        <div className="row">
-        <div className="input-group">
-          
-          <TextField
-          className="textS"
-            id="superficieTetto"
-            label="Superficie tetto"
-            variant="standard"
-            InputProps={{
-              endAdornment: <InputAdornment position="end">m²</InputAdornment>,
-              inputProps: {
-                pattern: '[0-9]*', 
-              },
-            }}
-          />
-        
-        <TextField className="textD" id="via" label="Via" variant="standard" /> 
-        </div>
-        <div className="input-group">
-        <TextField className="textS" id="citta" label="Città" variant="standard" />
-        <TextField className="textD" id="provincia" label="Provincia" variant="standard" /> 
-        </div>
-        <div className="input-group">
-        <TextField id="cap" label="Cap" variant="standard" />
-        </div>
-        </div>
-        </FormControl>
-        </div>
-      </div>
-    );
-  };
-
-  const step2 = () => {
-    return (
-      <form>
-        {/* Inserisci qui i campi del tuo modulo per l'inserimento delle informazioni utente */}
-        <label>Casa:</label>
-        <input type="text" name="name" />
-        <label>Porn:</label>
-        <input type="text" name="surname" />
-        {/* Aggiungi altri campi secondo le tue esigenze */}
-      </form>
-    );
+    setPreventivo(new RichiestaPrev());
   };
 
   return (
@@ -134,7 +102,7 @@ export default function StepperProva() {
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
+             {<StepFinal preventivo={preventivo}/>}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
@@ -144,8 +112,10 @@ export default function StepperProva() {
         ) : (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              {activeStep === 0 && step1()}
-              {activeStep === 1 && step2()}
+              {activeStep === 0 && <Step1 onComplete={handleStep1Complete} />}
+              {activeStep === 1 && <Step2 onCompleteTetti={handleStep2Complete}/>}
+              {activeStep === 2 && <Step3 onCompleteStep3={handleStep3Complete}/>}
+              {activeStep === 3 && <Step4 preventivo={preventivo}/>}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button

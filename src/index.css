@@ -36,3 +36,73 @@
   .textD{
     margin-left: 2rem !important;
   }
+
+  .selected {
+    border: 2px solid red; 
+  }
+
+
+
+ /* Nel tuo file CSS */
+
+/* Stile per la barra di ricerca */
+#search-input {
+  /* position: absolute;
+  top: 10px;
+  left: 10px; */
+  width: 300px; /* Larghezza personalizzata */
+  z-index: 1; /* Sovrapponi sopra la mappa */
+  background-color: rgba(255, 255, 255, 0.9); /* Sfondo trasparente */
+  padding: 10px;
+  font-size: 16px;
+  border: 3px solid #1577CE;
+  font-family: Arial, sans-serif;
+}
+
+/* Stile per il pulsante "Cerca" */
+.search-button {
+  position: absolute;
+  top: 10px;
+  left: 320px; /* Personalizza la posizione */
+  z-index: 1; /* Sovrapponi sopra la mappa */
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Stile per il pulsante "Cancella Poligono" */
+.clear-polygon-button {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Personalizza la posizione */
+  z-index: 1; /* Sovrapponi sopra la mappa */
+  background-color: #dc3545;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Altri stili desiderati per la mappa e il testo dell'area del poligono */
+
+.clear-poly-div{
+  margin: 1.5rem;
+}
+
+.clear-poly{
+  border: 3px solid #1577CE;
+ background-color: white;
+ color: #1577CE;
+ border-radius: .8rem;
+}
+
+.tot-area{
+  margin: 1.5rem;
+}
+
+.map{
+  margin: 3rem;
+}
+
