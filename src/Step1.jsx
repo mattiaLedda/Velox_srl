@@ -6,6 +6,44 @@ import { InfoEdificio } from "../public/model/InfoEdificio";
 import PropTypes from 'prop-types';
 
 const Step1 = ({ onComplete }) => {
+
+  const container = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: "100%",
+}
+
+  const divPrincipal = {
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    marginLeft: "2%",
+    marginRight: "2%",
+  }
+   
+  const containerTab = {
+    with:"100%",
+  }
+
+  const row = {
+    paddingTop: "1rem",
+    width: "100%",
+  }
+
+  const textS = {
+    width: "45%",
+    marginRight: "5%"
+  }
+
+  const textD = {
+    width: "45%",
+    marginLeft: "5%"
+  }
+
+  const textT = {
+    width: "100%",
+  }
   const [edificioInfo, setEdificioInfo] = useState(new InfoEdificio());
 
   const handleInputChange = (event, field) => {
@@ -33,13 +71,13 @@ const Step1 = ({ onComplete }) => {
   }, [edificioInfo, onComplete]);
 
   return (
-    <div className="container">
-      <div className="">
+    <div style={container}>
+      <div style={divPrincipal}>
         <FormControl variant="standard" sx={{ m: 1, mt: 3, width: "70%" }}>
-          <div className="row">
-            <div className="input-group">
+          <div style={containerTab}>
+            <div style={row}>
               <TextField
-                className="textS"
+                style={textS}
                 id="superficieTetto"
                 label="Superficie tetto"
                 variant="standard"
@@ -49,44 +87,87 @@ const Step1 = ({ onComplete }) => {
                   endAdornment: <InputAdornment position="end">m²</InputAdornment>,
                   inputProps: {
                     pattern: "[0-9]*",
+                    style: { fontSize: "20pt" }
                   },
+                  onInput: (e) => {
+                    e.preventDefault();
+                    const inputValue = e.target.value;
+                    const numericValue = inputValue.replace(/[^\d,.]/g, ""); // Rimuove tutti i caratteri non numerici, virgola e punto
+                    e.target.value = numericValue;
+                  }
+                }}
+                InputLabelProps={{
+                  style: { fontSize: "20pt" }
                 }}
               />
 
               <TextField
-                className="textD"
+                style={textD}
                 id="via"
                 label="Via"
                 variant="standard"
                 value={edificioInfo.via}
                 onChange={(e) => handleInputChange(e, "via")}
+                InputProps={{
+                  inputProps: {
+                    style: { fontSize: "20pt" }
+                  },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: "20pt" }
+                }}
               />
             </div>
-            <div className="input-group">
+            <div style={row}>
               <TextField
-                className="textS"
+                style={textS}
                 id="citta"
                 label="Città"
                 variant="standard"
                 value={edificioInfo.citta}
                 onChange={(e) => handleInputChange(e, "citta")}
+                InputProps={{
+                  inputProps: {
+                    style: { fontSize: "20pt" }
+                  },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: "20pt" }
+                }}
               />
               <TextField
-                className="textD"
+                style={textD}
                 id="provincia"
                 label="Provincia"
                 variant="standard"
                 value={edificioInfo.provincia}
                 onChange={(e) => handleInputChange(e, "provincia")}
+                InputProps={{
+                  inputProps: {
+                    style: { fontSize: "20pt" }
+                  },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: "20pt" }
+                }}
               />
             </div>
-            <div className="input-group">
+            <div style={row}>
               <TextField
+              style={textT}
                 id="cap"
                 label="Cap"
                 variant="standard"
                 value={edificioInfo.cap}
                 onChange={(e) => handleInputChange(e, "cap")}
+                InputProps={{
+                  inputProps: {
+                    style: { fontSize: "20pt" }
+                  },
+                }}
+                InputLabelProps={{
+                  style: { fontSize: "20pt" }
+                }}
               />
             </div>
           </div>

@@ -20,6 +20,14 @@ const steps = [
 ];
 
 export default function StepperProva() {
+
+  const container = {
+    marginTop: "2rem",
+    marginLeft: "3%",
+    marginRight: "3%",
+     padding: ".8rem"
+  }
+
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const [preventivo, setPreventivo] = React.useState(new RichiestaPrev());
@@ -88,7 +96,7 @@ export default function StepperProva() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box style={container}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>

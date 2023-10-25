@@ -19,11 +19,20 @@ function StepFinal({ preventivo }) {
         maxWidth: "544px",
         height: "656px",
         borderRadius: "16px",
+        marginTop: "4rem"
     }
   
     const divSpace = {
     padding: "4rem",
   };
+
+  const divContent = {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }
 
   const divTextTitle = {
     marginTop: "35px",
@@ -49,6 +58,7 @@ function StepFinal({ preventivo }) {
     color: "#1577CE",
     fontFamily: "Arial, sans-serif",
     fontWeight: "bold",
+    textAlign: "center"
   };
 
   const text = {
@@ -124,11 +134,8 @@ function StepFinal({ preventivo }) {
 
   const Lavorazioni = {
     SOSTITUZIONE_ISOLANTE: { nome: "Sostituzione Isolante", costo: 130, description: "Migliora l'isolamento termico sostituendo il vecchio materiale isolante con una soluzione più efficiente." },
-    RIFACIMENTO_INTEGRALE: { nome: "Rifacimento Integrale", costo: 200, description: "" },
-    RISTRUTTURAZIONE_COMPLETA: {
-      nome: "Ristrutturazione Completa",
-      costo: 340,
-      description: ""
+    RIFACIMENTO_INTEGRALE: { nome: "Rifacimento Integrale", costo: 200, description: "Trasforma il tuo tetto con una sostituzione completa di materiali e isolamento per massima efficienza." },
+    RISTRUTTURAZIONE_COMPLETA: {nome: "Ristrutturazione Completa", costo: 340, description: "Aggiorna il tuo tetto non solo con un nuovo isolante, ma anche con miglioramenti strutturali per massime prestazioni."
     },
   };
 
@@ -160,10 +167,10 @@ function StepFinal({ preventivo }) {
     }
   }, [preventivo]);
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (price = 0) => {
     const emailData = {
       to_email: preventivo.infoUser.mail, // Indirizzo e-mail del destinatario
-      message: messageForMail + prezziFiniti.finaleIsolante,
+      message: messageForMail + " " + price,
     };
 
     // Invia l'e-mail
@@ -179,7 +186,7 @@ function StepFinal({ preventivo }) {
   return (
     <div style={divSpace}>
       {calculated && (
-        <div>
+        <div style={divContent}>
         <Card style={card}>
           <CardContent>
             <div style={divText}>
@@ -203,37 +210,7 @@ function StepFinal({ preventivo }) {
               </Typography>
             </div>
            <div style={buttonC}>
-            <Button style={buttonT} onClick={handleButtonClick}>
-              RICHIEDI PREVENTIVO
-            </Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* <Card style={card}>
-          <CardContent>
-            <div style={divText}>
-              <Typography style={title} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.nome}
-              </Typography>
-            </div>
-            <div style={divTextTitle}>
-              <Typography style={text1} component="div">Prezzo finale</Typography>
-              <Typography style={text} component="div">{prezziFiniti.finaleIsolante} €</Typography>
-            </div>
-
-            <div style={divTextSub}>
-            <Typography style={subText} component="div">
-              {Lavorazioni.SOSTITUZIONE_ISOLANTE.costo} €/m²
-              </Typography>
-            </div>
-            <div style={divDescription}>
-              <Typography style={subTextDescription} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.description}
-              </Typography>
-            </div>
-           <div style={buttonC}>
-            <Button style={buttonT} onClick={handleButtonClick}>
+            <Button style={buttonT} onClick={() =>handleButtonClick(prezziFiniti.finaleIsolante)}>
               RICHIEDI PREVENTIVO
             </Button>
             </div>
@@ -244,31 +221,61 @@ function StepFinal({ preventivo }) {
           <CardContent>
             <div style={divText}>
               <Typography style={title} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.nome}
+                {Lavorazioni.RIFACIMENTO_INTEGRALE.nome}
               </Typography>
             </div>
             <div style={divTextTitle}>
               <Typography style={text1} component="div">Prezzo finale</Typography>
-              <Typography style={text} component="div">{prezziFiniti.finaleIsolante} €</Typography>
+              <Typography style={text} component="div">{prezziFiniti.finaleRifacimentoIntegrale} €</Typography>
             </div>
 
             <div style={divTextSub}>
             <Typography style={subText} component="div">
-              {Lavorazioni.SOSTITUZIONE_ISOLANTE.costo} €/m²
+              {Lavorazioni.RIFACIMENTO_INTEGRALE.costo} €/m²
               </Typography>
             </div>
             <div style={divDescription}>
               <Typography style={subTextDescription} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.description}
+                {Lavorazioni.RIFACIMENTO_INTEGRALE.description}
               </Typography>
             </div>
            <div style={buttonC}>
-            <Button style={buttonT} onClick={handleButtonClick}>
+            <Button style={buttonT} onClick={() => handleButtonClick(prezziFiniti.finaleRifacimentoIntegrale)}>
               RICHIEDI PREVENTIVO
             </Button>
             </div>
           </CardContent>
-        </Card> */}
+        </Card>
+
+        <Card style={card}>
+          <CardContent>
+            <div style={divText}>
+              <Typography style={title} component="div">
+                {Lavorazioni.RISTRUTTURAZIONE_COMPLETA.nome}
+              </Typography>
+            </div>
+            <div style={divTextTitle}>
+              <Typography style={text1} component="div">Prezzo finale</Typography>
+              <Typography style={text} component="div">{prezziFiniti.finaleRistrutturazione} €</Typography>
+            </div>
+
+            <div style={divTextSub}>
+            <Typography style={subText} component="div">
+              {Lavorazioni.RISTRUTTURAZIONE_COMPLETA.costo} €/m²
+              </Typography>
+            </div>
+            <div style={divDescription}>
+              <Typography style={subTextDescription} component="div">
+                {Lavorazioni.RISTRUTTURAZIONE_COMPLETA.description}
+              </Typography>
+            </div>
+           <div style={buttonC}>
+            <Button style={buttonT} onClick={() => handleButtonClick(prezziFiniti.finaleRistrutturazione)}>
+              RICHIEDI PREVENTIVO
+            </Button>
+            </div>
+          </CardContent>
+        </Card>
         </div>
       )}
     </div>
