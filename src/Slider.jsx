@@ -1,25 +1,24 @@
 function Slider() {
-    return (
-      <div id="slider" className=" d-flex flex-column w-100">
-        <div id="sliderimage1" className="w-100">
+  return (
+    <div id="slider" className=" d-flex flex-column w-100">
+      <div id="sliderimage1" className="w-100">
+        
+      </div>
+      <div className="d-flex flex-row m-0 w-100 align-items-center">
+        <div className="w-50 sliderbottom bg-black">
+             <h4 id="slidertitolo">
+             Evoluzione Estetica e Funzionale
+             </h4>
+             <p id="slidertesto">
+              La nostra maestria si riflette nella trasformazione che apportiamo. Prima, l'estetica e la funzionalità possono essere migliorabili. Dopo il nostro intervento, l'estetica è rivitalizzata, la funzionalità è ottimizzata. Ogni dettaglio è curato con precisione, rendendo lo spazio non solo bello, ma anche più funzionale e duraturo. Il confronto tra il 'prima' e il 'dopo' è testimonianza della precisione e dell'attenzione che impieghiamo in ogni progetto. Scopri la differenza visibile e funzionale esaminando le immagini prima e dopo in questo slider. L'attenzione al dettaglio e la precisione nel lavoro sono i pilastri della nostra eccellenza e la vostra soddisfazione la nostra priorità.
+             </p>
+        </div>
+        <div id="sliderimage2" className="w-50">
           
         </div>
-        <div className="d-flex flex-row m-0 w-100 align-items-center">
-          <div className="w-50 sliderbottom bg-black">
-               <h4 id="slidertitolo">
-                SLIDER PRIMA DOPO
-               </h4>
-               <p id="slidertesto">
-                Lorem ipsum dolor sit amet dolor slider bello nuovo paragrafo e titolo bobby shmurda Lorem ipsum dolor sit amet dolor slider bello nuovo paragrafo e titolo bobby shmurda Lorem ipsum dolor sit amet dolor slider bello nuovo paragrafo e titolo bobby shmurda Lorem ipsum dolor sit amet dolor slider bello nuovo paragrafo e titolo bobby shmurda
-               </p>
-          </div>
-          <div id="sliderimage2" className="w-50">
-            
-          </div>
-        </div>
       </div>
-    );
-  }
-  
-  export default Slider;
-   
+    </div>
+  );
+}
+
+export default Slider;

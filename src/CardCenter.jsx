@@ -1,19 +1,15 @@
-function CardCenter(){
+function CardCenter({ title, text }) {
     return (
         <div id="center-card">
             <h3 className="center-card-title">
-                Lorem imsum dolor
+                {title}
             </h3>
-            <p className="text-align-center">Lorem ipsum dolor sit amet lorem ipsum  dolor 
-            Lorem ipsum dolor sit amet lorrem ipsum dolor
-            Lorem ipsum dolor sit amet
-            Lorem ipsum dolor sit amet lorem ipsum  dolor 
-            Lorem ipsum dolor sit amet
-            
-
+            <p className="text-align-center centercardpar">
+                {text}
             </p>
             <button className="center-card-button">Scopri di più</button>
         </div>
-    )
+    );
 }
-export  default CardCenter
+
+export default CardCenter

@@ -11,6 +11,7 @@ function BottomCards() {
               image={data.image}
               title={data.title}
               text={data.text}
+              to={data.to}
             />
           ))}
         </div>

@@ -1,4 +1,4 @@
-import BottomFooter from "./BottomFooter"
+import Footer2 from "./Footer2"
 import Divided from "./Divided"
 import HalfPicture from "./HalfPicture"
 import Header from "./Header"
@@ -28,11 +28,7 @@ function Preventivo(){
             <Header/>
             <GoogleMaps/>
             <StepperProva/>
-            <Lines/>
-            <HalfPicture/>
-            <Divided/>
-            <TopFooter/>
-            <BottomFooter/>
+            <Footer2/>
         </div>
     )
 }

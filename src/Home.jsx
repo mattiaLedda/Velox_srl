@@ -7,6 +7,7 @@ import BottomCards from './BottomCards'
 import TopFooter from './TopFooter'
 import BottomFooter from './BottomFooter'
 import Lines from './Lines'
+import Footer2 from './Footer2'
 
 function Home() {
 
@@ -17,8 +18,7 @@ function Home() {
       <Slider/>
       <Lines/>
       <BottomCards/>
-      <TopFooter/>
-      <BottomFooter/>
+      <Footer2/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ function SubHeader() {
     return (
         <div id="subheader">
             <p className="topfootertext mr-5">
-                Lorem ipsum dolor sit amet dolor amet join today bitch fuck goin on in the buildin right now Lorem ipsum dolor sit amet dolor amet join today bitch dolor 
+            Esplora le nostre soluzioni di copertura durature. Contattaci o richiedi un preventivo sul nostro sito web, e scopri come possiamo trasformare e proteggere il tuo spazio con eleganza ed efficienza.
             </p>
 
             <div className="d-flex flex-row nav-buttons">

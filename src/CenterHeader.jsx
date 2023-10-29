@@ -3,14 +3,19 @@ function CenterHeader() {
     return (
         <div className="d-flex flex-row align-items-center position-absolute center-cont">
             <div id="centerheader">
-                LOREM <br /> IPSUM  <br /> DOLOR
+                ESPERIENZA <br />  QUALITÀ <br /> DURABILITÀ
             </div>
             <div className="center-head-right d-flex flex-column">
-                <h4 className="center-top">Lorem ipsum doolor sit amet  <br /> eccetera eccetera lorem ipsum <br /> dolor sit amet lorem </h4>
-                <button className="p-3 text-white border center-button  ">Scopri di più</button>
+                <h4 className="center-top">
+                    Proteggi la tua casa con i nostri tetti <br />
+                    resistenti e sostenibili. <br />
+                    Forniamo soluzioni di copertura di lunga durata che <br />
+                    valorizzano il tuo immobile.
+                </h4>
+                <button className="p-3 text-white border center-button">Scopri di più</button>
             </div>
         </div>
     )
 }
 
-export default CenterHeader
+export default CenterHeader;

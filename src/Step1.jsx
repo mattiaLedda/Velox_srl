@@ -33,9 +33,9 @@ const Step1 = ({ onComplete }) => {
   }, [edificioInfo, onComplete]);
 
   return (
-    <div className="container">
-      <div className="">
-        <FormControl variant="standard" sx={{ m: 1, mt: 3, width: "70%" }}>
+    <div className="container w-100">
+      <div className="w-100">
+        <FormControl variant="standard" sx={{ m: 1, mt: 3, width: "70%", display: "flex", flexDirection: "column",  justifyContent:"center" , margin:"auto" }}>
           <div className="row">
             <div className="input-group">
               <TextField

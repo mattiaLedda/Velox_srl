@@ -73,13 +73,7 @@ linee vita
 
 responsive
 stile stepper
-1/2 nuovi componenti
 collapse menu
 altri testi
-form contatti
-footer
-render immagini
 Poliuree aggiungi
-altre product page
-pagina caricamento
 

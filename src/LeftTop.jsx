@@ -6,12 +6,12 @@ function LeftTop() {
             <Link className="homelink" to="/">
                 <div className="d-flex flex-row align-items-center">
                     <img
-                        src="../public/assets/logo.png"
+                        src="../public/assets/logo.webp"
                         className="logo"
                         alt="Logo"
                     />
                     <img
-                        src="../public/assets/logo2.png"
+                        src="../public/assets/logo2.webp"
                         className="logo2"
                         alt="Logo"
                     />
@@ -23,7 +23,7 @@ function LeftTop() {
                     <Link className="link linktop dropdown-toggle" data-toggle="dropdown">Azienda</Link>
                     <div className="dropdown-menu">
                         <Link className="dropdown-item" to="/">Home</Link>
-                        <Link className="dropdown-item" to="/sottoservizio2">Sottoservizio 2</Link>
+                        <Link className="dropdown-item" to="/contatti">Contatti</Link>
                     </div>
                 </div>
 

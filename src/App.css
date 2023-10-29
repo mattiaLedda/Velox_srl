@@ -16,6 +16,7 @@
 #root {
   font-family: Helvetica Neue;
   font-weight: 100;
+  overflow-x: hidden;
 }
 
 .link-cont {
@@ -43,7 +44,7 @@
   background: white;
   content: '';
   mix-blend-mode: color-burn;
-  border-radius: 8px;
+  border-radius: 0px;
 }
 
 .button {
@@ -143,17 +144,23 @@
 #centerheader {
 
   color: transparent;
-  -webkit-text-stroke: 2px #3f79b9;
+  -webkit-text-stroke: 2px #7ca8d7;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* width and color */
   font-size: 65px;
   font-weight: 900;
-  line-height: 47px;
+  line-height: 65px;
 
 }
 
 .center-cont {
-  margin-left: 30vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
   margin-top: 22vh;
   gap: 80px;
 }
@@ -189,7 +196,7 @@
 }
 
 .center-card-title {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #center-card {
@@ -282,7 +289,7 @@ a:hover::after {
 
 #slidertesto {
   color: white;
-  width: 400px;
+  width: 600px;
 }
 
 .cardbottom {
@@ -408,12 +415,12 @@ a:hover::after {
 }
 
 .h-pic-right{
-  background-image: url(../public/assets/fototetti8.png);
+  background-image: url(../public/assets/fototetti8.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .h-pic-left{
-  background-color: #08569c;
+  background-color: #7ca8d7;
 }
 #halfpicture{
   height: 500px;
@@ -597,13 +604,13 @@ a:hover::after {
   margin-top: 50px;
 }
 #poli-title{
-  color:#08569c;
+  color:#7ca8d7;
   font-size: 35px;
 }
 #poli-butt{
-  color: #08569c;
+  color: #7ca8d7;
   font-size: 19px;
-  border: 3px solid #08569c;
+  border: 3px solid #7ca8d7;
   background-color: transparent;
   padding: 8px;
   margin-top: 20px;
@@ -684,4 +691,162 @@ a:hover::after {
 }
 .dropdown-item:hover{
   color:#4495db;
+}
+/* Footer.css */
+.footer-logo {
+  width: 150px;
+}
+
+.footer a {
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffc107;
+}
+
+.footer h5, .footer p {
+  font-size: 1.1em;
+}
+
+.border-top {
+  border-top: 1px solid #ffffff;
+}
+.footer1 {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.container1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.footer-links1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+  flex-wrap: wrap;
+  margin-bottom: 50px; 
+}
+
+.column1 {
+  flex: 1;
+  padding: 0 20px; 
+  margin: 0 10px; 
+}
+
+.column1 ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column1 li {
+  margin-bottom: 10px;
+}
+
+.footer1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social1 h5, .footer-info1 p {
+  margin: 0 0 10px 0;
+}
+
+.social-icons1 {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-info1 {
+  border-top: 1px solid #fff;
+  padding-top: 20px;
+  text-align: center;
+}
+.logo11{
+  height: 70px;
+  margin-bottom: 50px;
+  margin-top: 50px
+}
+.logo21{
+  height: 45px;
+}
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotateLogo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader img {
+  width: 100px;   /* Modifica a seconda delle dimensioni desiderate */
+  height: 100px;  /* Modifica a seconda delle dimensioni desiderate */
+  animation: rotateLogo 2s linear infinite;
+}
+.centercardpar{
+  font-weight: 200;
+  font-size: 17px;
+}
+
+.parag-text{
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.contactcont{
+  margin-left: 30vw;
+  margin-top: 150px;
+  font-weight: 300;
+}
+
+.search-street-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.map {
+  width: 500px;
+  height: 500px;
+  margin-top: 20px;
+}
+/* GoogleMaps.css */
+
+.map {
+  height: 500px;
+  width: 500px;
+}
+.three-wrap i{
+  font-size: 30px;
+  color: #7ca8d7;
+}
+.three-wrap{
+  font-weight: 300;
+}
+.paragCont{
+  margin-top: 120px;
 }

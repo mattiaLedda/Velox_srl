@@ -4,9 +4,9 @@ import CenterHeader from "./CenterHeader";
 import SubHeader from "./SubHeader";
 
 const images = [
-    "../public/assets/fototetti5.png",
-    "../public/assets/fototetti2.jpg",
-    "../public/assets/fototetti3.jpg"
+    "../public/assets/fototetti5.webp",
+    "../public/assets/fototetti2.webp",
+    "../public/assets/fototetti3.webp"
 ];
 
 function Header() {

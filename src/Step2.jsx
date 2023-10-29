@@ -14,14 +14,14 @@ const roofTypes = [
   { id: 2, type: "Due falde assimetriche" },
   { id: 3, type: "A padiglione" },
   { id: 4, type: "Falda unica" },
-  { id: 5, type: "A tenda" },
+/*   { id: 5, type: "A tenda" },
   { id: 6, type: "Due falde con teste a padiglione" },
   { id: 7, type: "A volta" },
   { id: 8, type: "A mansarda" },
   { id: 9, type: "A padiglione mansardato" },
   { id: 10, type: "A mansarda con teste a padiglione" },
   { id: 11, type: "A shed" },
-  { id: 12, type: "A croce" },
+  { id: 12, type: "A croce" }, */
 ];
 
 const roofImages = [
