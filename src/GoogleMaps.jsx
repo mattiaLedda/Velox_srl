@@ -5,7 +5,10 @@ function GoogleMaps() {
   const [searchQuery, setSearchQuery] = useState('');
   const [polygon, setPolygon] = useState(null);
   const [polygonArea, setPolygonArea] = useState(0);
-  const [autocomplete, setAutocomplete] = useState(null); // Aggiunto stato per l'autocomplete
+  const [polygonPerimeter, setPolygonPerimeter] = useState(0);
+  const [sideLengths, setSideLengths] = useState([]);
+  const [autocomplete, setAutocomplete] = useState(null);
+  const [polygonEdges, setPolygonEdges] = useState([]);
 
   useEffect(() => {
     const initializeMap = () => {
@@ -14,8 +17,6 @@ function GoogleMaps() {
         zoom: 10,
         mapTypeId: 'satellite',
       });
-
-      // const placesService = new window.google.maps.places.PlacesService(map);
 
       const dm = new window.google.maps.drawing.DrawingManager({
         drawingControl: true,
@@ -33,11 +34,13 @@ function GoogleMaps() {
             polygon.setMap(null);
           }
           setPolygon(event.overlay);
-          calculateArea(event.overlay.getPath());
+          const path = event.overlay.getPath();
+          calculateAreaAndPerimeter(path);
+          const lengths = calculateSideLengths(path);
+          setSideLengths(lengths);
         }
       });
 
-      // Inizializza l'autocomplete
       const input = document.getElementById('search-input');
       const options = {
         types: ['geocode'],
@@ -63,9 +66,32 @@ function GoogleMaps() {
     loadGoogleMapsScript();
   }, []);
 
-  const calculateArea = (path) => {
+  const calculateAreaAndPerimeter = (path) => {
     const area = window.google.maps.geometry.spherical.computeArea(path);
+    const perimeter = calculatePerimeter(path);
     setPolygonArea(area);
+    setPolygonPerimeter(perimeter);
+  };
+
+  const calculatePerimeter = (path) => {
+    let perimeter = 0;
+    for (let i = 0; i < path.getLength(); i++) {
+      const startPoint = path.getAt(i);
+      const endPoint = path.getAt((i + 1) % path.getLength());
+      perimeter += window.google.maps.geometry.spherical.computeDistanceBetween(startPoint, endPoint);
+    }
+    return perimeter;
+  };
+
+  const calculateSideLengths = (path) => {
+    const sideLengths = [];
+    for (let i = 0; i < path.getLength(); i++) {
+      const startPoint = path.getAt(i);
+      const endPoint = path.getAt((i + 1) % path.getLength());
+      const length = window.google.maps.geometry.spherical.computeDistanceBetween(startPoint, endPoint);
+      sideLengths.push(length);
+    }
+    return sideLengths;
   };
 
   const handleSearch = () => {
@@ -83,7 +109,18 @@ function GoogleMaps() {
       polygon.setMap(null);
       setPolygon(null);
       setPolygonArea(0);
+      setPolygonPerimeter(0);
+      setSideLengths([]);
+      removePolygonEdges();
     }
+  };
+
+  const removePolygonEdges = () => {
+    // Rimuovi tutte le linee (lati) dal poligono
+    polygonEdges.forEach((edge) => {
+      edge.setMap(null);
+    });
+    setPolygonEdges([]);
   };
 
   return (
@@ -92,7 +129,7 @@ function GoogleMaps() {
       <div className="search-box">
         <input
           type="text"
-          id="search-input" // Assicurati che l'ID sia "search-input"
+          id="search-input"
           placeholder="Inserisci l'indirizzo"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -103,6 +140,17 @@ function GoogleMaps() {
       {polygonArea > 0 && (
         <div className="tot-area">
           <p>Area del poligono: {polygonArea.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri quadrati</p>
+          <p>Perimetro del poligono: {polygonPerimeter.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri</p>
+        </div>
+      )}
+      {sideLengths.length > 0 && (
+        <div className="tot-area">
+          <p>Lunghezza dei lati:</p>
+          <ul>
+            {sideLengths.map((length, index) => (
+              <li key={index}>{length.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri</li>
+            ))}
+          </ul>
         </div>
       )}
       {polygon && (
