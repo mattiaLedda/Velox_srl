@@ -25,7 +25,7 @@ function Preventivo(){
     
     return(
         <div>
-            <Header/>
+            <Header title="PREVENTIVO"/>
             <GoogleMaps/>
             <StepperProva/>
             <Footer2/>

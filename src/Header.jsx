@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import CenterHeader from "./CenterHeader";
 import SubHeader from "./SubHeader";
+import LeftTop from "./LeftTop";
+import MobileNavbar from "./MobileNavbar";
 
 const images = [
     "../public/assets/fototetti5.webp",
@@ -9,7 +11,7 @@ const images = [
     "../public/assets/fototetti3.webp"
 ];
 
-function Header() {
+function Header({ title }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [zoomed, setZoomed] = useState(true);
 
@@ -79,10 +81,11 @@ function Header() {
             </div>
             <div style={{ ...overlayStyle, zIndex: 0 }}></div>
             <div className="container">
-                <NavBar />
+                <div id="pcnav"><LeftTop/></div>
+                <div id="mobilenav"><MobileNavbar/></div>
                 {/* Altri contenuti del componente Header */}
             </div>
-            <CenterHeader />
+            <CenterHeader title={title} />
             <SubHeader />
         </div>
     );

@@ -82,7 +82,7 @@ function PoliHeader(){
                 <NavBar />
                 {/* Altri contenuti del componente Header */}
             </div>
-            <CenterHeader />
+            <CenterHeader title="POLIUREE"/>
         </div>
     );
 }

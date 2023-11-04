@@ -1,9 +1,20 @@
-function CenterHeader() {
+function CenterHeader({ title }) {
+
+    if(title) {
+        const upperCaseTitle = title.toUpperCase();
+        return (
+            <div className="d-flex flex-row align-items-center position-absolute center-cont">
+                <div id="centerheader" className="m-auto">
+                    {upperCaseTitle}
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="d-flex flex-row align-items-center position-absolute center-cont">
             <div id="centerheader">
-                ESPERIENZA <br />  QUALITÀ <br /> DURABILITÀ
+                ESPERIENZA <br /> QUALITÀ <br /> DURABILITÀ
             </div>
             <div className="center-head-right d-flex flex-column">
                 <h4 className="center-top">
@@ -15,7 +26,7 @@ function CenterHeader() {
                 <button className="p-3 text-white border center-button">Scopri di più</button>
             </div>
         </div>
-    )
+    );
 }
 
 export default CenterHeader;

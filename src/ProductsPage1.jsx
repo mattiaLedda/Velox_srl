@@ -10,7 +10,7 @@ function ProductsPage1(props){
     const prodotto = props.product
     return(
         <div>
-            <Header/>
+            <Header title={paragraphs[prodotto].title}/>
             <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text}/>
             <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text}/>
             

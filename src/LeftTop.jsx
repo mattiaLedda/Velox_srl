@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function LeftTop() {
     return (
+        <div id="navbar" className="d-flex flex-row align-items-center justify-content-between p-3 ">
         <div className="d-flex flex-row align-items-center text-white lefttop">
             <Link className="homelink" to="/">
                 <div className="d-flex flex-row align-items-center">
@@ -67,6 +68,7 @@ function LeftTop() {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

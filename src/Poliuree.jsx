@@ -19,7 +19,7 @@ const polipar = {
 function Poliuree(){
     return(
         <div>
-            <Header/>
+            <Header title="POLIUREE"/>
             <ThreePar icon={threeparag.first.icon} title={threeparag.first.title} text={threeparag.first.text}/>
             <MidPoli/>
             <HalfPicture/>

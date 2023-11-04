@@ -96,7 +96,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   gap: 100px;
   font-weight: 100;
-
   margin-top: 100px;
   background: linear-gradient(to right, #08569c,#48a5de);
   padding: 16px;
@@ -849,4 +848,136 @@ a:hover::after {
 }
 .paragCont{
   margin-top: 120px;
+  margin-bottom: 120px;
+}
+/* Navbar Base Styles */
+.mobile-navbar {
+  background: transparent;
+  color: white;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 0 20px;
+  align-items: center;
+  height: 60px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px; /* Regola questa dimensione come necessario */
+}
+
+/* Icona burger e X */
+.nav-icon {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: -25px;
+}
+
+/* Nav menu styles */
+.nav-menu {
+  background: #222;
+  position: fixed;
+  top: 35px; /* La stessa altezza dell'intestazione */
+  bottom: 0;
+  width: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  margin-left: -20px;
+  margin-top: -20px;
+  z-index: 9999;
+  padding-left: 30px;
+}
+
+.nav-menu.expanded {
+  width: 280px; /* Larghezza del pannello laterale quando espanso */
+}
+
+/* Stili dei link */
+.nav-item {
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  color: white;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Altri possibili stili e transizioni... */
+
+
+
+
+
+/* Media query per dispositivi con schermo fino a 768px di larghezza */
+@media (max-width: 768px) {
+  #mobilenav {
+    display: block; /* Mostra la navbar mobile su schermi più piccoli */
+  }
+}
+
+/* Aggiungi qui ulteriori stili per personalizzare la sidebar */
+
+
+/* Stili per schermi più grandi */
+@media (min-width: 769px) {
+  #pcnav {
+      display: block; /* Mostra la navbar per PC su schermi più grandi */
+  }
+  #mobilenav {
+      display: none; /* Assicurati che la navbar mobile sia nascosta su schermi grandi */
+  }
+}
+
+/* Stili per schermi più piccoli */
+@media (max-width: 768px) {
+  #pcnav {
+      display: none; /* Nascondi la navbar per PC su schermi più piccoli */
+  }
+  #mobilenav {
+      display: block; /* Mostra la navbar mobile su schermi più piccoli */
+  }
+  .mobile-logo{
+    width: 60px;
+  }
 }

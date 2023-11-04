@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     return (
         <div>
-            <Header/>
+            <Header title="CONTATTACI"/>
         <div className="contactcont">
             <div className="row justify-content-center">
                 <div className="col-12 col-md-8 col-lg-6">
