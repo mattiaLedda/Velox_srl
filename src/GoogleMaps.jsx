@@ -9,47 +9,57 @@ function GoogleMaps() {
   const [sideLengths, setSideLengths] = useState([]);
   const [autocomplete, setAutocomplete] = useState(null);
   const [polygonEdges, setPolygonEdges] = useState([]);
+  const [line, setLine] = useState(null);
+  const [lineLength, setLineLength] = useState(0);
+
 
   useEffect(() => {
-    const initializeMap = () => {
-      const map = new window.google.maps.Map(document.getElementById('map'), {
-        center: { lat: 40.7128, lng: -74.006 },
-        zoom: 10,
-        mapTypeId: 'satellite',
-      });
-
-      const dm = new window.google.maps.drawing.DrawingManager({
-        drawingControl: true,
-        drawingControlOptions: {
-          position: window.google.maps.ControlPosition.TOP_CENTER,
-          drawingModes: [window.google.maps.drawing.OverlayType.POLYGON],
-        },
-      });
-
-      dm.setMap(map);
-
-      window.google.maps.event.addListener(dm, 'overlaycomplete', (event) => {
-        if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
-          if (polygon) {
-            polygon.setMap(null);
-          }
-          setPolygon(event.overlay);
-          const path = event.overlay.getPath();
-          calculateAreaAndPerimeter(path);
-          const lengths = calculateSideLengths(path);
-          setSideLengths(lengths);
-        }
-      });
-
-      const input = document.getElementById('search-input');
-      const options = {
-        types: ['geocode'],
+      const initializeMap = () => {
+          const map = new window.google.maps.Map(document.getElementById('map'), {
+              center: { lat: 40.7128, lng: -74.006 },
+              zoom: 10,
+              mapTypeId: 'satellite',
+          });
+  
+          const dm = new window.google.maps.drawing.DrawingManager({
+              drawingControl: true,
+              drawingControlOptions: {
+                  position: window.google.maps.ControlPosition.TOP_CENTER,
+                  drawingModes: [window.google.maps.drawing.OverlayType.POLYGON, window.google.maps.drawing.OverlayType.POLYLINE],
+              },
+          });
+  
+          dm.setMap(map);
+  
+          window.google.maps.event.addListener(dm, 'overlaycomplete', (event) => {
+              if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
+                  if (polygon) {
+                      polygon.setMap(null);
+                  }
+                  setPolygon(event.overlay);
+                  const path = event.overlay.getPath();
+                  calculateAreaAndPerimeter(path);
+                  const lengths = calculateSideLengths(path);
+                  setSideLengths(lengths);
+              } else if (event.type === window.google.maps.drawing.OverlayType.POLYLINE) {
+                  if (line) {
+                      line.setMap(null);
+                  }
+                  setLine(event.overlay);
+                  calculateLineLength(event.overlay);
+              }
+          });
+  
+          const input = document.getElementById('search-input');
+          const options = {
+              types: ['geocode'],
+          };
+          const autocomplete = new window.google.maps.places.Autocomplete(input, options);
+          setAutocomplete(autocomplete);
+  
+          setMap(map);
       };
-      const autocomplete = new window.google.maps.places.Autocomplete(input, options);
-      setAutocomplete(autocomplete);
-
-      setMap(map);
-    };
+  
 
     const loadGoogleMapsScript = () => {
       const script = document.createElement('script');
@@ -94,6 +104,15 @@ function GoogleMaps() {
     return sideLengths;
   };
 
+  const calculateLineLength = (line) => {
+    const path = line.getPath();
+    const startPoint = path.getAt(0);
+    const endPoint = path.getAt(1);
+    const length = window.google.maps.geometry.spherical.computeDistanceBetween(startPoint, endPoint);
+    setLineLength(length);
+  };
+
+
   const handleSearch = () => {
     if (map && autocomplete) {
       const place = autocomplete.getPlace();
@@ -113,6 +132,14 @@ function GoogleMaps() {
       setSideLengths([]);
       removePolygonEdges();
     }
+  };
+
+  const clearLine = () => {
+    if (line) {
+      line.setMap(null);
+      setLine(null);
+      setLineLength(0);
+  }
   };
 
   const removePolygonEdges = () => {
@@ -156,6 +183,17 @@ function GoogleMaps() {
       {polygon && (
         <div className="clear-poly-div">
           <button onClick={clearPolygon} className="clear-poly">Cancella Poligono</button>
+        </div>
+      )}
+
+      {lineLength > 0 && (
+        <div className="clear-poly-div">
+          <button onClick={clearLine} className="clear-poly">Cancella Linea</button>
+        </div>
+      )}
+      {lineLength > 0 && (
+        <div className="tot-area">
+          <p>Lunghezza della linea: {lineLength.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri</p>
         </div>
       )}
     </div>
