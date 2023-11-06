@@ -26,26 +26,26 @@ const ContactForm = () => {
     return (
         <div>
             <Header title="CONTATTACI"/>
-        <div className="contactcont w-100 d-flex flex-column align-items-center justify-content-center">
-            <div  id="contactWrapper"  className="row justify-content-center">
-                <div className="w-100 d-flex flex-column justify-content-center align-items-center">
-                    <div className="my-4 w-100">
+        <div className="contactcont">
+            <div className="row justify-content-center">
+                <div className="col-12 col-md-8 col-lg-6">
+                    <div className="my-4">
                         <h2 className="text-center">Informazioni Azienda</h2>
-                        <ul className="list-group w-100">
+                        <ul className="list-group">
                             <li className="list-group-item"><strong>Nome:</strong> Nome Azienda Srl</li>
                             <li className="list-group-item"><strong>Sede:</strong> Via Esempio, 123, Città, Stato</li>
                             <li className="list-group-item"><strong>Email:</strong> info@azienda.it</li>
                             <li className="list-group-item"><strong>Telefono:</strong> +39 0123 456789</li>
                         </ul>
                     </div>
-                    <div className="my-4 w-100">
+                    <div className="my-4">
                         <h2 className="text-center">Contattaci</h2>
-                        <form onSubmit={handleSubmit} className="w-100">
+                        <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
                                 <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
                             </div>
-                            <div className="mb-3 w-100">
+                            <div className="mb-3">
                                 <label className="form-label">Oggetto</label>
                                 <input type="text" className="form-control" name="subject" value={formData.subject} onChange={handleChange} required />
                             </div>

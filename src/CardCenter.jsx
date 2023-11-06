@@ -4,7 +4,7 @@ function CardCenter({ title, text }) {
             <h3 className="center-card-title">
                 {title}
             </h3>
-            <p className="text-align-center centercardpar">
+            <p className="text-align-center centercardpar w-100">
                 {text}
             </p>
             <button className="center-card-button">Scopri di più</button>

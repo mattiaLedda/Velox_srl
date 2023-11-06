@@ -2,8 +2,8 @@ import CardBottom from "./CardBottom"
 import cardData from "./cards"
 function BottomCards() {
     return (
-        <div class="bottomcardscontainer">
-        <h2 className="ml-4 sottoservizi">Sottoservizi</h2>
+        <div class="bottomcardscontainer d-flex flex-column align-items-center">
+        <h2 className="sottoservizi m-5">Sottoservizi</h2>
         <div className="bardcontainer d-flex flex-row flex-wrap">
           {cardData.map((data, index) => (
             <CardBottom

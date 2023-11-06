@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ThreePar() {
+function MobileThreePar() {
     // Array di oggetti contenente le informazioni per ogni scheda
     const cardsData = [
         { 
@@ -39,17 +39,12 @@ function ThreePar() {
 
     return (
         <div className="w-100 three-wrap">
-            <h3 className="w-100 text-center three-title">Gli utilizzi delle poliuree</h3>
+            <h3 className="w-100 text-center three-titlemobile">Gli utilizzi delle poliuree</h3>
             <div className="d-flex flex-wrap three-cont">
-                {cardsData.slice(0,3).map((card, index) => (
+                {cardsData.map((card, index) => (
                     <div 
                         key={index} 
-                        className={`d-flex flex-column align-items-center threecard ${index === 1 ? 'three-center' : ''}`}
-                        style={{
-                            maxWidth: '33.33%', 
-                            borderRight: (index === 1) ? '1px solid #000' : 'none',
-                            boxSizing: 'border-box'
-                        }}
+                        className={`d-flex flex-column align-items-center threecardmobile`}
                     >
                         <i className={card.icon}></i>
                         <h4>{card.title}</h4>
@@ -57,26 +52,9 @@ function ThreePar() {
                     </div>
                 ))}
             </div>
-            <div style={{height: '20px'}}></div> {/* Spazio tra le due righe */}
-            <div className="d-flex flex-wrap three-cont">
-                {cardsData.slice(3,6).map((card, index) => (
-                    <div 
-                        key={index} 
-                        className={`d-flex flex-column align-items-center threecard ${index === 1 ? 'three-center' : ''}`}
-                        style={{
-                            width: '33.33%', 
-                            borderRight: (index === 1) ? '1px solid #000' : 'none',
-                            boxSizing: 'border-box'
-                        }}
-                    >
-                        <i className={card.icon}></i>
-                        <h4>{card.title}</h4>
-                        <p className="three-p">{card.text}</p>
-                    </div>
-                ))}
-            </div>
+            
         </div>
     );
 }
 
-export default ThreePar;
+export default MobileThreePar;

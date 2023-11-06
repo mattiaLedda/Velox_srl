@@ -74,7 +74,6 @@ linee vita
 responsive
 seo
 stile stepper
-collapse menu
 misura distanze 
 ****isotech
 dividi navbar

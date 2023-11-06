@@ -5,7 +5,6 @@ import Paragraph from "./Paragraph";
 import TopFooter from "./TopFooter";
 import paragraphs from "../paragraphs";
 import imagepar from "../imagepar";
-import MobileSlider from "./MobileSLider";
 
 function ProductsPage1(props){
     const prodotto = props.product
@@ -13,12 +12,7 @@ function ProductsPage1(props){
         <div>
             <Header title={paragraphs[prodotto].title}/>
             <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text}/>
-            <div id="pcslider">
-                <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text} />
-            </div>
-            <div id="mobileslider">
-                <MobileSlider  title={imagepar[prodotto].title} text={imagepar[prodotto].text} />
-            </div>
+            <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text}/>
             
             <Footer2/>
         </div>

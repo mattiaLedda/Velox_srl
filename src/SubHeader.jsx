@@ -6,8 +6,8 @@ function SubHeader() {
             </p>
 
             <div className="d-flex flex-row nav-buttons">
-                <button id="button1" className="p-2">Contattaci</button>
-                <button className="button   p-2" id="button2">Preventivo</button>
+                <button id="button1" className="p-2 d-none">Contattaci</button>
+                <button className="button d-none  p-2" id="button2">Preventivo</button>
             </div>
 
         </div>

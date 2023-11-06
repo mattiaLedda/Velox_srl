@@ -8,17 +8,23 @@ import TopFooter from './TopFooter'
 import BottomFooter from './BottomFooter'
 import Lines from './Lines'
 import Footer2 from './Footer2'
+import MobileLines from './MobileLines'
 
 function Home() {
 
   return (
     <div >
-      <Header/>
-      <CenterCards/>
-      <Slider/>
-      <Lines/>
-      <BottomCards/>
-      <Footer2/>
+      <Header />
+      <CenterCards />
+      <Slider />
+      <div id="pclines">
+        <Lines />
+      </div>
+      <div id="mobilelines">
+        <MobileLines />
+      </div>
+      <BottomCards />
+      <Footer2 />
     </div>
   )
 }

@@ -133,7 +133,7 @@ function GoogleMaps() {
         </div>
       </div>
 
-      <div id="map" style={{ height: '800px', width: '800px', borderRadius: "20px" }}></div>
+      <div id="map" ></div>
       {polygonArea > 0 && (
         <div className="tot-area">
           <p>Area del poligono: {polygonArea.toLocaleString('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} metri quadrati</p>

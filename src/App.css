@@ -9,7 +9,8 @@
 .logo {
   height: 63px;
 }
-.logo2{
+
+.logo2 {
   height: 32px
 }
 
@@ -32,7 +33,7 @@
   font-weight: bold;
   background-color: transparent;
   color: white;
- 
+
 }
 
 .button::before {
@@ -55,13 +56,25 @@
   color: #1E1E1E;
 }
 
-/*#header {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 95vh;
-  position: relative; 
-  
+@media (min-width: 768px) {
+  #header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95vh;
+    position: relative;
+
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 66vh;
+    position: relative;
+  }
 }
 
 .bg-overlay {
@@ -73,7 +86,7 @@
   background: linear-gradient(to bottom, rgb(35, 35, 35), transparent);
   overflow: hidden;
 }
-*/
+
 .container {
   position: relative;
   z-index: 2;
@@ -88,8 +101,8 @@
 #subheader {
   height: 160px;
   color: white;
-  background: linear-gradient(to right, #08569c,#48a5de);
-  position: absolute;
+  background: linear-gradient(to right, #08569c, #48a5de);
+  display: none;
   bottom: 0;
   width: 100%;
   z-index: 3;
@@ -97,21 +110,24 @@
   gap: 100px;
   font-weight: 100;
   margin-top: 100px;
-  background: linear-gradient(to right, #08569c,#48a5de);
+  background: linear-gradient(to right, #08569c, #48a5de);
   padding: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.subicon{
+
+.subicon {
   font-size: 25px;
 }
-.iconpair{
+
+.iconpair {
   gap: 20px
 }
-#header i{
-  
+
+#header i {
+
   font-size: 33px;
 }
 
@@ -144,13 +160,22 @@
 
   color: transparent;
   -webkit-text-stroke: 2px #7ca8d7;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   /* width and color */
   font-size: 65px;
   font-weight: 900;
   line-height: 65px;
 
 }
+
+@media (max-width: 550px) {
+  #centerheader {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 45px;
+  }
+}
+
 
 .center-cont {
   width: 100%;
@@ -164,6 +189,20 @@
   gap: 80px;
 }
 
+@media (max-width: 550px) {
+  .center-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 17vh;
+    gap: 80px;
+  }
+}
+
 .center-head-right {
   line-height: 0px;
   text-align: start;
@@ -171,7 +210,6 @@
   margin-left: 35px;
   justify-content: center;
   gap: 20px
-
 }
 
 .center-button {
@@ -231,7 +269,7 @@ button {
   transition: all 0.3s;
   border-radius: 8px;
   font-size: 15px;
-  
+
 }
 
 a:hover {
@@ -267,7 +305,7 @@ a:hover::after {
 
 .sliderbottom {
   height: 400px;
-  background: linear-gradient(to right, #08569c,#48a5de);
+  background: linear-gradient(to right, #08569c, #48a5de);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -312,6 +350,7 @@ a:hover::after {
 .cardBbottom {
   height: 50%;
   padding: 30px;
+  padding-top: 10px;
 }
 
 .bardtitle {
@@ -336,9 +375,7 @@ a:hover::after {
 
 }
 
-.bottomcardscontainer {
-  margin-left: 200px;
-}
+
 
 .sottoservizi {
   color: #3f79b9
@@ -347,7 +384,7 @@ a:hover::after {
 #topfooter {
   height: 180px;
   margin-top: 100px;
-  background: linear-gradient(to right, #08569c,#48a5de);
+  background: linear-gradient(to right, #08569c, #48a5de);
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -388,7 +425,8 @@ a:hover::after {
 }
 
 .bardcontainer {
-  margin-right: 20px;
+  margin-right: 2px;
+  padding: 30px
 }
 
 #footericons {
@@ -399,7 +437,8 @@ a:hover::after {
   align-items: center;
   font-size: 20px;
 }
-.footericonswrapper{
+
+.footericonswrapper {
   color: white;
   display: flex;
   flex-direction: column;
@@ -409,54 +448,68 @@ a:hover::after {
   gap: 70px;
   padding-bottom: 0px;
 }
-.footermark{
+
+.footermark {
   margin-bottom: 0px;
 }
 
-.h-pic-right{
+.h-pic-right {
   background-image: url(../public/assets/fototetti8.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
-.h-pic-left{
+
+.h-pic-left {
   background-color: #7ca8d7;
 }
-#halfpicture{
+
+#halfpicture {
   height: 500px;
   color: white;
 }
-#halfpicture h3{
-  font-size: 36px;
-}
-.h-icons p{
-  font-size: 17px;
-}
-.ht-p{
-  font-size: 20px;
-  text-align:center;
+#mobilehalfpicture {
+  height: fit-content;
+  color: white;
 }
 
-.link, .footerlink{
+#halfpicture h3 {
+  font-size: 36px;
+}
+
+.h-icons p {
+  font-size: 17px;
+}
+
+.ht-p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.link,
+.footerlink {
   color: white;
   text-decoration: none;
 }
-.link:hover, .footerlink:hover{
-  color:#3f79b9;
+
+.link:hover,
+.footerlink:hover {
+  color: #3f79b9;
   text-decoration: none;
 }
 
-.linktop{
+.linktop {
   font-size: 17px;
-  color:#aad3ff ;
+  color: #aad3ff;
   font-weight: 400;
 }
 
-.lefttop{
+.lefttop {
   width: 65%;
-  justify-content:space-between;
+  justify-content: space-between;
 }
+
 .round-card {
-  position:absolute;
+  position: absolute;
   height: 500px;
   overflow: hidden;
   border-radius: 15px;
@@ -466,11 +519,13 @@ a:hover::after {
   align-items: center;
   margin: 50px;
   background-color: #ffffff;
-  position: relative; /* Aggiungi questa proprietà per posizionare il riflesso */
+  position: relative;
+  /* Aggiungi questa proprietà per posizionare il riflesso */
   box-shadow: 80px 30px 400px 5px #bbccdf inset, -3px 3px 10px 0px rgb(90, 90, 90);
   transition: all 0.3s;
 }
-.round-card:hover{
+
+.round-card:hover {
   box-shadow: 80px 30px 400px 5px #6190c2 inset, -4px 4px 4px px rgb(90, 90, 90);
   transform: scale(1.01);
 }
@@ -479,12 +534,18 @@ a:hover::after {
 .round-card::before {
   content: "";
   position: absolute;
-  top: 1px; /* Regola la posizione del riflesso rispetto al bordo superiore */
-  left: 1px; /* Regola la posizione del riflesso rispetto al bordo sinistro */
-  right: 1px; /* Regola la posizione del riflesso rispetto al bordo destro */
-  bottom: 1px; /* Regola la posizione del riflesso rispetto al bordo inferiore */
-  background: linear-gradient(to top, rgba(169, 222, 255, 0.4), transparent); /* Applica il riflesso di luce */
-  border-radius: 15px; /* Assicurati che il riflesso abbia lo stesso bordo arrotondato */
+  top: 1px;
+  /* Regola la posizione del riflesso rispetto al bordo superiore */
+  left: 1px;
+  /* Regola la posizione del riflesso rispetto al bordo sinistro */
+  right: 1px;
+  /* Regola la posizione del riflesso rispetto al bordo destro */
+  bottom: 1px;
+  /* Regola la posizione del riflesso rispetto al bordo inferiore */
+  background: linear-gradient(to top, rgba(169, 222, 255, 0.4), transparent);
+  /* Applica il riflesso di luce */
+  border-radius: 15px;
+  /* Assicurati che il riflesso abbia lo stesso bordo arrotondato */
 }
 
 
@@ -497,63 +558,86 @@ a:hover::after {
   text-align: center;
   padding-top: 70%;
   color: white;
-  display: flex; /* Abilita il modello di flessione */
-  flex-direction: column; /* Imposta la direzione dei figli su colonna */
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra orizzontalmente */
-  background: linear-gradient(to  left, #a4cee9 , #6e9fca );
+  display: flex;
+  /* Abilita il modello di flessione */
+  flex-direction: column;
+  /* Imposta la direzione dei figli su colonna */
+  justify-content: center;
+  /* Centra verticalmente */
+  align-items: center;
+  /* Centra orizzontalmente */
+  background: linear-gradient(to left, #a4cee9, #6e9fca);
   box-shadow: 0px 6px 22px 4px rgba(0, 0, 0, 0.59);
 }
+
 .round-cont::before {
   content: "";
   position: absolute;
-  top: 10px; /* Regola la posizione del riflesso rispetto al bordo superiore */
-  left: 10px; /* Regola la posizione del riflesso rispetto al bordo sinistro */
-  right: 10px; /* Regola la posizione del riflesso rispetto al bordo destro */
-  bottom: 10px; /* Regola la posizione del riflesso rispetto al bordo inferiore */
-  border-radius: 15px; /* Assicurati che il riflesso abbia lo stesso bordo arrotondato */
+  top: 10px;
+  /* Regola la posizione del riflesso rispetto al bordo superiore */
+  left: 10px;
+  /* Regola la posizione del riflesso rispetto al bordo sinistro */
+  right: 10px;
+  /* Regola la posizione del riflesso rispetto al bordo destro */
+  bottom: 10px;
+  /* Regola la posizione del riflesso rispetto al bordo inferiore */
+  border-radius: 15px;
+  /* Assicurati che il riflesso abbia lo stesso bordo arrotondato */
 }
 
 
-.round-card-text{
-  padding: 40px; position: relative;
+.round-card-text {
+  padding: 40px;
+  position: relative;
 }
-.round-card-par{
+
+.round-card-par {
   font-weight: 300;
 }
-.round-card-subtitle{
+
+.round-card-subtitle {
   font-size: 27px;
 }
+
 /* Stile per il contenitore principale */
 .lines-cont {
   display: flex;
-  align-items: flex-start; /* Allinea gli elementi all'inizio verticalmente */
-  margin-bottom: 20px; 
+  align-items: flex-start;
+  /* Allinea gli elementi all'inizio verticalmente */
+  margin-bottom: 20px;
   justify-content: space-between;
-  
+
 }
 
 /* Stile per l'icona */
 .lines-cont i {
-  margin-right: 10px; /* Aggiungi spazio tra l'icona e h5 */
-  align-self: flex-start; /* Allinea l'icona all'inizio verticalmente */
+  margin-right: 10px;
+  /* Aggiungi spazio tra l'icona e h5 */
+  align-self: flex-start;
+  /* Allinea l'icona all'inizio verticalmente */
 }
 
 /* Stile per h5 */
 .lines-h {
-  margin: 0; /* Rimuovi il margine predefinito di h5 */
-  align-self: flex-start; /* Allinea h5 all'inizio verticalmente */
+  margin: 0;
+  /* Rimuovi il margine predefinito di h5 */
+  align-self: flex-start;
+  /* Allinea h5 all'inizio verticalmente */
 }
 
 /* Stile per p */
 .lines-p {
-  margin: 0; /* Rimuovi il margine predefinito di p */
-  width: 50%; /* Imposta la larghezza desiderata */
-  align-self: flex-start; /* Allinea il paragrafo all'inizio verticalmente */
+  margin: 0;
+  /* Rimuovi il margine predefinito di p */
+  width: 50%;
+  /* Imposta la larghezza desiderata */
+  align-self: flex-start;
+  /* Allinea il paragrafo all'inizio verticalmente */
   border-top: 2px solid black;
   font-size: 20px;
   font-weight: 300;
 }
+
 .lines-outcont {
   display: flex;
   justify-content: flex-end;
@@ -561,7 +645,14 @@ a:hover::after {
   margin-bottom: 0px;
   padding: 50px;
 }
-.lines-wrap{
+.lines-h{
+  font-size: 23px;
+}
+.lines-cont i{
+  font-size: 27px;
+}
+
+.lines-wrap {
   background-image: url(../public/assets/sfondo.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -569,44 +660,58 @@ a:hover::after {
   gap: 100px;
   padding-top: 100px;
 }
-.lines-incont{
-  margin:0px;
+
+.lines-incont {
+  margin: 0px;
   width: 83%;
 }
-.lines-title{
+
+.lines-title {
   font-size: 40px;
 }
-#map{
+
+#map {
   margin: 0px;
   width: 95%;
   height: 600px;
   display: flex;
   flex-direction: row;
 }
-.poli-wrap{
+
+.poli-wrap {
   gap: 0px;
   background: linear-gradient(to bottom, black, white);
   height: 900px;
 }
-.poli-bid{
+
+.poli-bid {
   height: 800px;
 }
-#poli-cont{
+
+#poli-cont {
   color: black;
   padding: 160px;
   align-items: flex-start;
 }
-#poli-p{
+#poli-contmobile {
+  color: black;
+  padding: 40px;
+  align-items: flex-start;
+}
+
+#poli-p {
   font-weight: 300;
   font-size: 18px;
   line-height: 30px;
   margin-top: 50px;
 }
-#poli-title{
-  color:#7ca8d7;
+
+#poli-title {
+  color: #7ca8d7;
   font-size: 35px;
 }
-#poli-butt{
+
+#poli-butt {
   color: #7ca8d7;
   font-size: 19px;
   border: 3px solid #7ca8d7;
@@ -614,55 +719,76 @@ a:hover::after {
   padding: 8px;
   margin-top: 20px;
 }
-.threecard{
-  padding: 80px;
+
+.threecard {
+  padding: 50px;
   gap: 30px
 }
-.three-p{
+.threecardmobile {
+  padding: 40px;
+  gap: 30px
+}
+
+
+.three-p {
   width: 90%;
 }
-.three-cont{
+
+.three-cont {
   margin-top: 60px;
 }
-.three-center{
+
+.three-center {
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
-.three-wrap{
+
+.three-wrap {
   margin-top: 100px;
   margin-bottom: 100px;
 }
-.three-title{
+
+.three-title {
   font-size: 38px;
 }
+.three-titlemobile {
+  font-size: 30px;
+}
 
-.homelink{
+.homelink {
   transition: all 0.4s;
   padding: 10px;
   border-radius: 10px;
+  margin-right: 30px;
 
 }
-.homelink:hover{
+
+.homelink:hover {
   background-color: white;
   border-bottom: 0px;
 }
-.homelink::after{
+
+.homelink::after {
   background: transparent;
 }
+
 .link-cont .dropdown {
   position: relative;
 }
 
 .linktop.dropdown-toggle {
-  margin-bottom: 0;  /* Rimuove il margine inferiore */
+  margin-bottom: 0;
+  /* Rimuove il margine inferiore */
 }
 
 .dropdown-menu {
   left: 50%;
   transform: translateX(-50%);
   top: 100%;
-  margin-top: 0;  /* Assicurati che non ci sia spazio tra il link e il menu a tendina */
-  border-top: none;  /* Rimuove il bordo superiore per un passaggio più fluido */
+  margin-top: 0;
+  /* Assicurati che non ci sia spazio tra il link e il menu a tendina */
+  border-top: none;
+  /* Rimuove il bordo superiore per un passaggio più fluido */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -670,7 +796,8 @@ a:hover::after {
 }
 
 .linktop.dropdown-toggle::after {
-  margin-top: 0px; /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
+  margin-top: 0px;
+  /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
   transform: rotate(90deg);
 }
 
@@ -678,19 +805,25 @@ a:hover::after {
 .dropdown:hover .linktop.dropdown-toggle::after {
   transform: rotate(0deg);
 }
-.linktop.dropdown-toggle::after{
+
+.linktop.dropdown-toggle::after {
   transition: all 0.2s;
 }
+
 .linktop.dropdown-toggle::after {
   position: relative;
-  top: 2px;  /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
+  top: 2px;
+  /* Aumenta o diminuisci questo valore per regolare la posizione verticale della freccia */
 }
-.logo22{
+
+.logo22 {
   height: 20px;
 }
-.dropdown-item:hover{
-  color:#4495db;
+
+.dropdown-item:hover {
+  color: #4495db;
 }
+
 /* Footer.css */
 .footer-logo {
   width: 150px;
@@ -705,13 +838,15 @@ a:hover::after {
   color: #ffc107;
 }
 
-.footer h5, .footer p {
+.footer h5,
+.footer p {
   font-size: 1.1em;
 }
 
 .border-top {
   border-top: 1px solid #ffffff;
 }
+
 .footer1 {
   background-color: #333;
   color: #fff;
@@ -726,22 +861,22 @@ a:hover::after {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
 }
 
 
 .footer-links1 {
   display: flex;
   justify-content: space-between;
-  width: 100%; 
+  width: 100%;
   flex-wrap: wrap;
-  margin-bottom: 50px; 
+  margin-bottom: 50px;
 }
 
 .column1 {
   flex: 1;
-  padding: 0 20px; 
-  margin: 0 10px; 
+  padding: 0 20px;
+  margin: 0 10px;
 }
 
 .column1 ul {
@@ -758,7 +893,8 @@ a:hover::after {
   text-decoration: none;
 }
 
-.footer-social1 h5, .footer-info1 p {
+.footer-social1 h5,
+.footer-info1 p {
   margin: 0 0 10px 0;
 }
 
@@ -775,14 +911,17 @@ a:hover::after {
   padding-top: 20px;
   text-align: center;
 }
-.logo11{
+
+.logo11 {
   height: 70px;
   margin-bottom: 50px;
   margin-top: 50px
 }
-.logo21{
+
+.logo21 {
   height: 45px;
 }
+
 .loader-container {
   position: fixed;
   top: 0;
@@ -797,27 +936,34 @@ a:hover::after {
 }
 
 @keyframes rotateLogo {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loader img {
-  width: 100px;   /* Modifica a seconda delle dimensioni desiderate */
-  height: 100px;  /* Modifica a seconda delle dimensioni desiderate */
+  width: 100px;
+  /* Modifica a seconda delle dimensioni desiderate */
+  height: 100px;
+  /* Modifica a seconda delle dimensioni desiderate */
   animation: rotateLogo 2s linear infinite;
 }
-.centercardpar{
+
+.centercardpar {
   font-weight: 200;
   font-size: 17px;
 }
 
-.parag-text{
+.parag-text {
   font-size: 18px;
   font-weight: 200;
 }
 
-.contactcont{
-  margin-left: 30vw;
+.contactcont {
   margin-top: 150px;
   font-weight: 300;
 }
@@ -833,23 +979,28 @@ a:hover::after {
   height: 500px;
   margin-top: 20px;
 }
+
 /* GoogleMaps.css */
 
 .map {
   height: 500px;
   width: 500px;
 }
-.three-wrap i{
+
+.three-wrap i {
   font-size: 30px;
   color: #7ca8d7;
 }
-.three-wrap{
+
+.three-wrap {
   font-weight: 300;
 }
-.paragCont{
+
+.paragCont {
   margin-top: 120px;
   margin-bottom: 120px;
 }
+
 /* Navbar Base Styles */
 .mobile-navbar {
   background: transparent;
@@ -867,7 +1018,8 @@ a:hover::after {
 
 .logo {
   width: 70px;
-  height: 70px; /* Regola questa dimensione come necessario */
+  height: 70px;
+  /* Regola questa dimensione come necessario */
 }
 
 /* Icona burger e X */
@@ -884,7 +1036,8 @@ a:hover::after {
 .nav-menu {
   background: #222;
   position: fixed;
-  top: 35px; /* La stessa altezza dell'intestazione */
+  top: 35px;
+  /* La stessa altezza dell'intestazione */
   bottom: 0;
   width: 0;
   overflow-x: hidden;
@@ -896,7 +1049,8 @@ a:hover::after {
 }
 
 .nav-menu.expanded {
-  width: 280px; /* Larghezza del pannello laterale quando espanso */
+  width: 280px;
+  /* Larghezza del pannello laterale quando espanso */
 }
 
 /* Stili dei link */
@@ -928,7 +1082,7 @@ a:hover::after {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -952,7 +1106,8 @@ a:hover::after {
 /* Media query per dispositivi con schermo fino a 768px di larghezza */
 @media (max-width: 768px) {
   #mobilenav {
-    display: block; /* Mostra la navbar mobile su schermi più piccoli */
+    display: block;
+    /* Mostra la navbar mobile su schermi più piccoli */
   }
 }
 
@@ -962,22 +1117,267 @@ a:hover::after {
 /* Stili per schermi più grandi */
 @media (min-width: 769px) {
   #pcnav {
-      display: block; /* Mostra la navbar per PC su schermi più grandi */
+    display: block;
+    /* Mostra la navbar per PC su schermi più grandi */
   }
+
   #mobilenav {
-      display: none; /* Assicurati che la navbar mobile sia nascosta su schermi grandi */
+    display: none;
+    /* Assicurati che la navbar mobile sia nascosta su schermi grandi */
   }
 }
 
 /* Stili per schermi più piccoli */
 @media (max-width: 768px) {
   #pcnav {
-      display: none; /* Nascondi la navbar per PC su schermi più piccoli */
+    display: none;
+    /* Nascondi la navbar per PC su schermi più piccoli */
   }
+
   #mobilenav {
-      display: block; /* Mostra la navbar mobile su schermi più piccoli */
+    display: block;
+    /* Mostra la navbar mobile su schermi più piccoli */
   }
-  .mobile-logo{
+
+  .mobile-logo {
     width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  #centerheadcontmobile {
+    display: block;
+  }
+
+  #centerheadcont {
+    display: none;
+  }
+
+  #centerheader {
+    text-align: center;
+  }
+
+  #centerheadermobile {
+
+    color: transparent;
+    -webkit-text-stroke: 2px #7ca8d7;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* width and color */
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-top: 90px;
+    align-items: center;
+  }
+
+  .center-topmobile {
+    line-height: 15px;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .center-contmobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+  }
+}
+
+@media (min-width: 768px) {
+  #centerheadcontmobile {
+    display: none;
+  }
+
+  #centerheadcont {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  #pcslider {
+    display: none;
+  }
+
+  #mobileslider {
+    display: block;
+  }
+
+  #slidertitolo {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #slidertesto {
+    color: white;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .paragWrapper {
+    width: 74%;
+  }
+
+  #sliderimage2 {
+    display: none;
+  }
+
+  .slidertitolohome {
+    color: white
+  }
+
+  .slidertitoloup {
+    display: block;
+  }
+
+  .slidertitolodown {
+    display: none;
+  }
+
+  #center-card {
+    text-align: start;
+    margin: 0px;
+    margin-top: 80px;
+    width: 75%;
+    margin-left: -30px;
+  }
+  #pclines{
+     display: none;
+  }
+  #mobilelines{
+   display: block;
+  }
+  .lines-p{
+    width: 90%;
+  }
+  .lines-outcont{
+    padding: 25px;
+  }
+  .lines-title{
+    font-size: 30px;
+  }
+  .bottomcardscontainer {
+    margin: 20px;
+  }
+  .cardbottom {
+    height: 430px;
+    box-shadow: 0px 6px 22px 4px rgba(109, 109, 109, 0.59);
+    border-radius: 8px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    width: 70vw;
+    transition: all 0.3s;
+  }
+  .cardbottomfoto {
+    height: 40%;
+    width: 100%;
+    overflow: hidden;
+  
+  }
+  .bardcontainer{
+    margin: 0px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+  .cardBbottom{
+    margin-top: 30px;
+  }
+  #contactWrapper{
+    width: 75%;
+  }
+  #mobilethreepar{
+    display: block;
+  }
+  #pcthreepar{
+    display: none;
+  }
+  #midpolimobile{
+    display: block;
+  }
+  #midpolipc{
+    display: none;
+  }
+  #pchalfpic{
+    display: none;
+  }
+  #mobilehalfpic{
+    display: block;
+    margin-top: 220px;
+  }
+}
+
+@media (min-width: 768px) {
+  .lines-p{
+    width: 75%;
+  }
+  #pclines{
+    display: block;
+ }
+ #mobilelines{
+  display: none;
+ }
+  #pcslider {
+    display: block;
+  }
+
+  #mobileslider {
+    display: none;
+  }
+
+  .paragWrapper {
+    width: 60%;
+  }
+
+  #sliderimage2 {
+    width: 50%;
+  }
+
+  .sliderbottom {
+    width: 50%;
+  }
+
+  .slidertitoloup {
+    display: none;
+  }
+
+  .slidertitolodown {
+    display: block;
+  }
+  .bardcontainer{
+    margin: 0px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #contactWrapper{
+    width: 50%;
+  }
+  #mobilethreepar{
+    display: none;
+  }
+  #pcthreepar{
+    display: block;
+  }
+  #midpolimobile{
+    display: none;
+  }
+  #midpolipc{
+    display: block;
+  }
+  #pchalfpic{
+    display: block;
+  }
+  #mobilehalfpic{
+    display: none;
   }
 }

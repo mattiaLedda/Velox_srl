@@ -5,16 +5,16 @@ import Paragraph from "./Paragraph";
 import TopFooter from "./TopFooter";
 import paragraphs from "../paragraphs";
 import imagepar from "../imagepar";
+import MobileSlider from "./MobileSLider";
 
-function ProductsPage1(props){
+function ProductsPage1(props) {
     const prodotto = props.product
-    return(
+    return (
         <div>
-            <Header/>
-            <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text}/>
-            <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text}/>
+            <Header />
+            <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text} />
             
-            <Footer2/>
+            <Footer2 />
         </div>
     )
 }

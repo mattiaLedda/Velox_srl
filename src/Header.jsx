@@ -4,6 +4,7 @@ import CenterHeader from "./CenterHeader";
 import SubHeader from "./SubHeader";
 import LeftTop from "./LeftTop";
 import MobileNavbar from "./MobileNavbar";
+import MobileCenterHeader from "./MobileCenterHeader";
 
 const images = [
     "../public/assets/fototetti5.webp",
@@ -54,12 +55,12 @@ function Header({ title }) {
         left: 0,
         width: "100%",
         height: "100%",
-        background:" linear-gradient(to bottom , rgba(30, 30, 30, 0.9) 20%, rgba(128, 128, 128, 0.3) 80% )        ",
+        background: " linear-gradient(to bottom , rgba(30, 30, 30, 0.9) 20%, rgba(128, 128, 128, 0.3) 80% )        ",
         zIndex: 1,
     };
 
     const headerContainerStyle = {
-        height: "95vh",
+
         position: "relative",
         overflow: "hidden"
     };
@@ -81,11 +82,16 @@ function Header({ title }) {
             </div>
             <div style={{ ...overlayStyle, zIndex: 0 }}></div>
             <div className="container">
-                <div id="pcnav"><LeftTop/></div>
-                <div id="mobilenav"><MobileNavbar/></div>
+                <div id="pcnav"><LeftTop /></div>
+                <div id="mobilenav"><MobileNavbar /></div>
                 {/* Altri contenuti del componente Header */}
             </div>
-            <CenterHeader title={title} />
+            <div id="centerheadcont">
+                <CenterHeader title={title} />
+            </div>
+            <div  id="centerheadcontmobile">
+                <MobileCenterHeader title={title} />
+            </div>
             <SubHeader />
         </div>
     );
