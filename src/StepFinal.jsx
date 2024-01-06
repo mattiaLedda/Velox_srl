@@ -11,7 +11,7 @@ const templateId = "template_blnjifs";
 const userId = "B5Zd4GopwjNHKb9C2"; 
 
 function StepFinal({ preventivo }) {
-
+  console.log(preventivo)
   const messageForMail = "Ciao " + preventivo.infoUser.nome + " " + preventivo.infoUser.cognome + ", come da te richiesto, ti confermiamo il prezzo della simulazione di preventivo fatta sul nostro sito";
   
     const card = {
@@ -164,8 +164,9 @@ function StepFinal({ preventivo }) {
     const emailData = {
       to_email: preventivo.infoUser.mail, // Indirizzo e-mail del destinatario
       message: messageForMail + prezziFiniti.finaleIsolante,
+      
     };
-
+    console.log(emailData)
     // Invia l'e-mail
     emailjs.send(serviceId, templateId, emailData, userId)
       .then((response) => {

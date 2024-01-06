@@ -1,9 +1,10 @@
 function MobileCenterHeader({ title }) {
-
+    
     if(title) {
         const upperCaseTitle = title.toUpperCase();
         return (
             <div className="d-flex flex-row align-items-center position-absolute center-cont">
+                
                 <div id="centerheader" className="m-auto">
                     {upperCaseTitle}
                 </div>
@@ -12,7 +13,8 @@ function MobileCenterHeader({ title }) {
     }
 
     return (
-        <div className="d-flex flex-column align-items-center position-absolute center-contmobile">
+        <div className="d-flex flex-column justify-content-center align-items-center position-absolute center-contmobile" >
+            
             <div id="centerheadermobile">
                 ESPERIENZA <br /> QUALITÀ <br /> DURABILITÀ
             </div>

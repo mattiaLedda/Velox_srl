@@ -3,7 +3,7 @@ import Footer2 from "./Footer2"
 import HalfPicture from "./HalfPicture"
 import MidPoli from "./MidPoli"
 import Paragraph from "./Paragraph"
-import Header from "./Header"
+import RealHeader from "./RealHeader"
 import ThreePar from "./ThreePar"
 import TopFooter from "./TopFooter"
 import MobileThreePar from "./MobileThreePar"
@@ -22,7 +22,7 @@ const polipar = {
 function Poliuree() {
     return (
         <div>
-            <Header title="POLIUREE" />
+            <RealHeader title="POLIUREE" />
             <div id="pcthreepar">
                 <ThreePar icon={threeparag.first.icon} title={threeparag.first.title} text={threeparag.first.text} />
             </div>

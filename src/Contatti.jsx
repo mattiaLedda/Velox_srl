@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './Header';
-import Footer2 from './Footer2';
+import RealHeader from './RealHeader';
+import Footer2 from './Footer2';  
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -20,12 +21,19 @@ const ContactForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        emailjs.sendForm('service_147bt86', 'template_pjh72rp', e.target, 'M0CZUsugsZWNAcGKp')
+        .then((result) => {
+            console.log(result.text);
+            // Aggiungi qui eventuali azioni post-invio, come mostrare un messaggio di successo
+        }, (error) => {
+            console.log(error.text);
+            // Gestisci qui eventuali errori di invio
+        });
     };
 
     return (
         <div>
-            <Header title="CONTATTACI"/>
+            <RealHeader title="CONTATTACI"/>
         <div className="contactcont w-100 d-flex flex-column align-items-center justify-content-center">
             <div  id="contactWrapper"  className="row justify-content-center">
                 <div className="w-100 d-flex flex-column justify-content-center align-items-center">
@@ -43,7 +51,7 @@ const ContactForm = () => {
                         <form onSubmit={handleSubmit} className="w-100">
                             <div className="mb-3">
                                 <label className="form-label">Email</label>
-                                <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
+                                <input type="email" className="form-control" name="from_name" value={formData.email} onChange={handleChange} required />
                             </div>
                             <div className="mb-3 w-100">
                                 <label className="form-label">Oggetto</label>

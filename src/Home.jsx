@@ -9,12 +9,13 @@ import BottomFooter from './BottomFooter'
 import Lines from './Lines'
 import Footer2 from './Footer2'
 import MobileLines from './MobileLines'
+import RealHeader from './RealHeader'
 
 function Home() {
 
   return (
     <div >
-      <Header />
+     <RealHeader/>
       <CenterCards />
       <Slider />
       <div id="pclines">

@@ -56,26 +56,8 @@
   color: #1E1E1E;
 }
 
-@media (min-width: 768px) {
-  #header {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 95vh;
-    position: relative;
 
-  }
-}
 
-@media (max-width: 768px) {
-  #header {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 66vh;
-    position: relative;
-  }
-}
 
 .bg-overlay {
   position: absolute;
@@ -99,17 +81,14 @@
 }
 
 #subheader {
-  height: 160px;
+  min-height: 160px;
+  height:fit-content;
   color: white;
   background: linear-gradient(to right, #08569c, #48a5de);
-  display: none;
-  bottom: 0;
   width: 100%;
-  z-index: 3;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   gap: 100px;
   font-weight: 100;
-  margin-top: 100px;
   background: linear-gradient(to right, #08569c, #48a5de);
   padding: 16px;
   display: flex;
@@ -185,8 +164,9 @@
   align-items: center;
   align-content: center;
   margin: auto;
-  margin-top: 22vh;
   gap: 80px;
+  top: 250px;
+  left: 0;
 }
 
 @media (max-width: 550px) {
@@ -198,8 +178,9 @@
     align-items: center;
     align-content: center;
     margin: auto;
-    margin-top: 17vh;
     gap: 80px;
+    top: -80px;
+    left: 0;
   }
 }
 
@@ -320,13 +301,13 @@ a:hover::after {
 
 #slidertitolo {
   color: white;
-  font-size: 40px;
-  margin-bottom: 35px;
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
 #slidertesto {
   color: white;
-  width: 600px;
+  font-size: 17px;
 }
 
 .cardbottom {
@@ -340,6 +321,7 @@ a:hover::after {
   width: 22vw;
   margin: 30px;
   transition: all 0.3s;
+  min-width: 300px;
 }
 
 .cardbottom:hover {
@@ -467,7 +449,9 @@ a:hover::after {
   height: 500px;
   color: white;
 }
-#mobilehalfpicture {
+
+#mobilehalfpic {
+  margin-top: 100px;
   height: fit-content;
   color: white;
 }
@@ -645,10 +629,12 @@ a:hover::after {
   margin-bottom: 0px;
   padding: 50px;
 }
-.lines-h{
+
+.lines-h {
   font-size: 23px;
 }
-.lines-cont i{
+
+.lines-cont i {
   font-size: 27px;
 }
 
@@ -690,13 +676,15 @@ a:hover::after {
 
 #poli-cont {
   color: black;
-  padding: 160px;
+  padding: 60px;
+  padding-top: 150px;
   align-items: flex-start;
 }
+
 #poli-contmobile {
   color: black;
   padding: 40px;
-  align-items: flex-start;
+  align-items: center;
 }
 
 #poli-p {
@@ -724,6 +712,7 @@ a:hover::after {
   padding: 50px;
   gap: 30px
 }
+
 .threecardmobile {
   padding: 40px;
   gap: 30px
@@ -751,6 +740,7 @@ a:hover::after {
 .three-title {
   font-size: 38px;
 }
+
 .three-titlemobile {
   font-size: 30px;
 }
@@ -982,6 +972,10 @@ a:hover::after {
 
 /* GoogleMaps.css */
 
+#midpolimobile {
+  margin-bottom: 250px;
+}
+
 .map {
   height: 500px;
   width: 500px;
@@ -1016,11 +1010,22 @@ a:hover::after {
   height: 60px;
 }
 
+.container-real {
+  position: absolute;
+  top: 0;
+}
+
+.centerheadcont-real {
+  position: absolute;
+  top: 0;
+}
+
 .logo {
   width: 70px;
   height: 70px;
   /* Regola questa dimensione come necessario */
 }
+
 
 /* Icona burger e X */
 .nav-icon {
@@ -1036,21 +1041,36 @@ a:hover::after {
 .nav-menu {
   background: #222;
   position: fixed;
-  top: 35px;
-  /* La stessa altezza dell'intestazione */
+  top: 0px; /* La stessa altezza dell'intestazione */
   bottom: 0;
-  width: 0;
+  width: 0; /* Imposta la larghezza iniziale a 0 per nascondere la sidebar */
   overflow-x: hidden;
-  transition: 0.5s;
-  margin-left: -20px;
+  transition: width 0.5s; /* Transizione sulla proprietà width per l'effetto di animazione */
   margin-top: -20px;
   z-index: 9999;
-  padding-left: 30px;
+  padding-left: 50px;
+  padding-top: 0px;
+  margin-left: -50px;
+}
+.sidebar {
+  background-color: #333; /* Colore di sfondo per visibilità */
+  color: #fff; /* Colore del testo per contrasto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Imposta la larghezza iniziale a 0 */
+  overflow-x: hidden; /* Nasconde il contenuto che esce dal div */
+  transition: width 0.5s; /* Effetto di transizione fluido */
+  z-index: 100; /* Assicurati che sia sopra agli altri elementi */
+}
+
+.sidebar.expanded {
+  width: 250px; /* Larghezza della sidebar quando è aperta */
 }
 
 .nav-menu.expanded {
-  width: 280px;
-  /* Larghezza del pannello laterale quando espanso */
+  width: 280px; /* Larghezza del pannello laterale quando espanso */
 }
 
 /* Stili dei link */
@@ -1097,38 +1117,70 @@ a:hover::after {
   display: block;
 }
 
+.car-title {
+  font-size: 34px;
+  padding: 50px;
+}
+
 /* Altri possibili stili e transizioni... */
 
+#centerheadcont-real {
+  position: absolute;
+  top: 0;
+}
 
+#centerheadcontmobile-real {
+  position: absolute;
+  top: 300px;
+  width: 100%;
+  display:flex;
+}
 
+@media (max-width: 500px) {
+  #centr-contmobilereal{
+    display: block;
+  }
+  #header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
 
-
-/* Media query per dispositivi con schermo fino a 768px di larghezza */
-@media (max-width: 768px) {
+  #header-real {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 66vh;
+    position: relative;
+  }
   #mobilenav {
     display: block;
     /* Mostra la navbar mobile su schermi più piccoli */
   }
-}
 
-/* Aggiungi qui ulteriori stili per personalizzare la sidebar */
-
-
-/* Stili per schermi più grandi */
-@media (min-width: 769px) {
-  #pcnav {
-    display: block;
-    /* Mostra la navbar per PC su schermi più grandi */
+  #subheader {
+    height: fit-content;
+    color: white;
+    background: linear-gradient(to right, #08569c, #48a5de);
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    background: linear-gradient(to right, #08569c, #48a5de);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:15px;
   }
-
-  #mobilenav {
-    display: none;
-    /* Assicurati che la navbar mobile sia nascosta su schermi grandi */
+  .topfootertext {
+    color: white;
+    width: 83vw;
+    text-transform: uppercase;
+    font-size: 15px;
   }
-}
-
-/* Stili per schermi più piccoli */
-@media (max-width: 768px) {
   #pcnav {
     display: none;
     /* Nascondi la navbar per PC su schermi più piccoli */
@@ -1142,14 +1194,15 @@ a:hover::after {
   .mobile-logo {
     width: 60px;
   }
-}
-
-@media (max-width: 768px) {
   #centerheadcontmobile {
     display: block;
   }
 
-  #centerheadcont {
+  #centerheadcontmobile-real {
+    display: block;
+  }
+
+  #centerheadcont-real {
     display: none;
   }
 
@@ -1179,28 +1232,7 @@ a:hover::after {
     color: white;
   }
 
-  .center-contmobile {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-
-  }
-}
-
-@media (min-width: 768px) {
-  #centerheadcontmobile {
-    display: none;
-  }
-
-  #centerheadcont {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
+  
   #pcslider {
     display: none;
   }
@@ -1247,24 +1279,41 @@ a:hover::after {
     width: 75%;
     margin-left: -30px;
   }
-  #pclines{
-     display: none;
+
+  .center-contmobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 150px;
   }
-  #mobilelines{
-   display: block;
+
+  #pclines {
+    display: none;
   }
-  .lines-p{
+
+  #mobilelines {
+    display: block;
+  }
+
+  .lines-p {
     width: 90%;
   }
-  .lines-outcont{
+
+  .lines-outcont {
     padding: 25px;
   }
-  .lines-title{
+
+  .lines-title {
     font-size: 30px;
   }
+
   .bottomcardscontainer {
     margin: 20px;
   }
+
   .cardbottom {
     height: 430px;
     box-shadow: 0px 6px 22px 4px rgba(109, 109, 109, 0.59);
@@ -1276,62 +1325,158 @@ a:hover::after {
     width: 70vw;
     transition: all 0.3s;
   }
+
   .cardbottomfoto {
     height: 40%;
     width: 100%;
     overflow: hidden;
-  
+
   }
-  .bardcontainer{
+
+  .bardcontainer {
     margin: 0px;
     width: 100%;
     justify-content: center;
     align-items: center;
     padding: 0px;
   }
-  .cardBbottom{
+
+  .cardBbottom {
     margin-top: 30px;
   }
-  #contactWrapper{
+
+  #contactWrapper {
     width: 75%;
   }
-  #mobilethreepar{
+
+  #mobilethreepar {
     display: block;
   }
-  #pcthreepar{
+
+  #pcthreepar {
     display: none;
   }
-  #midpolimobile{
+
+  #midpolimobile {
     display: block;
   }
-  #midpolipc{
+
+  #midpolipc {
     display: none;
   }
-  #pchalfpic{
+
+  #pchalfpic {
     display: none;
   }
-  #mobilehalfpic{
+
+  #mobilehalfpic {
     display: block;
     margin-top: 220px;
   }
 }
+@media (min-width: 500px) and (max-width: 1000px) {
+  .center-contmobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 
-@media (min-width: 768px) {
-  .lines-p{
+  }
+  .center-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    gap: 80px;
+    top: 100px;
+    left: 0;
+  }
+  #pcnav {
+    display: none;
+    /* Mostra la navbar per PC su schermi più grandi */
+  }
+
+  #mobilenav {
+    display: block;
+    /* Assicurati che la navbar mobile sia nascosta su schermi grandi */
+  }
+  #header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95vh;
+    position: relative;
+
+  }
+  #centerheadermobile {
+
+    color: transparent;
+    -webkit-text-stroke: 2px #7ca8d7;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* width and color */
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-top: 90px;
+    align-items: center;
+  }
+  
+
+  .center-topmobile {
+    line-height: 25px;
+    font-size: 22px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  #header-real {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 95vh;
+    position: relative;
+
+  }
+  #centerheadcontmobile {
+    display: none;
+  }
+
+  #centerheadcontmobile-real {
+    display: none;
+  }
+
+  #centerheadcont {
+    display: block;
+  }
+
+  #centerheadcont-real {
+    display: none;
+  }
+  .lines-p {
     width: 75%;
   }
-  #pclines{
+
+  #pclines {
     display: block;
- }
- #mobilelines{
-  display: none;
- }
+  }
+
+  #mobilelines {
+    display: none;
+  }
+
   #pcslider {
-    display: block;
+    display: none;
   }
 
   #mobileslider {
-    display: none;
+    display: block;
   }
 
   .paragWrapper {
@@ -1339,12 +1484,15 @@ a:hover::after {
   }
 
   #sliderimage2 {
-    width: 50%;
+    width: 00%;
   }
 
   .sliderbottom {
-    width: 50%;
+    width: 100%;
+    padding: 40px;
   }
+
+
 
   .slidertitoloup {
     display: none;
@@ -1353,31 +1501,281 @@ a:hover::after {
   .slidertitolodown {
     display: block;
   }
-  .bardcontainer{
+
+  .bardcontainer {
     margin: 0px;
     width: 100%;
     justify-content: center;
     align-items: center;
   }
-  #contactWrapper{
+
+  #contactWrapper {
     width: 50%;
   }
-  #mobilethreepar{
-    display: none;
-  }
-  #pcthreepar{
+
+  #mobilethreepar {
     display: block;
   }
-  #midpolimobile{
+
+  #pcthreepar {
     display: none;
   }
-  #midpolipc{
+
+  #midpolimobile {
     display: block;
   }
-  #pchalfpic{
-    display: block;
-  }
-  #mobilehalfpic{
+
+  #midpolipc {
     display: none;
+  }
+
+  #pchalfpic {
+    display: none;
+  }
+
+  #mobilehalfpic {
+    display: block;
+  }
+
+  #carouselExampleIndicators {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .dropbtn{
+    font-size: 20px;
+  }
+}
+@media (min-width: 1000px) {
+  #header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
+  .sliderbottom {
+    width: 50%;
+  }
+  #header-real {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 66vh;
+    position: relative;
+  }
+  #mobilenav {
+    display: none;
+    /* Mostra la navbar mobile su schermi più piccoli */
+  }
+  #pcnav {
+    display: block;
+    /* Mostra la navbar mobile su schermi più piccoli */
+  }
+
+  #subheader {
+    height: fit-content;
+    color: white;
+    background: linear-gradient(to right, #08569c, #48a5de);
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    background: linear-gradient(to right, #08569c, #48a5de);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:15px;
+  }
+  .topfootertext {
+    color: white;
+    width: 83vw;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  
+
+  .mobile-logo {
+    width: 60px;
+  }
+  #centerheadcontmobile {
+    display: block;
+  }
+
+  #centerheadcontmobile-real {
+    display: none;
+  }
+
+  #centerheadcont-real {
+    display: block;
+  }
+
+  #centerheader {
+    text-align: center;
+  }
+
+  #centerheadermobile {
+
+    color: transparent;
+    -webkit-text-stroke: 2px #7ca8d7;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* width and color */
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-top: 90px;
+    align-items: center;
+  }
+
+  .center-topmobile {
+    line-height: 15px;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  .center-contmobile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+  }
+  #pcslider {
+    display: block;
+  }
+
+  #mobileslider {
+    display: none;
+  }
+
+  #slidertitolo {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #slidertesto {
+    color: white;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .paragWrapper {
+    width: 74%;
+  }
+
+  #sliderimage2 {
+    display: block;
+  }
+  #sliderimage2 {
+    width: 50%;
+  }
+  .slidertitolohome {
+    color: white
+  }
+
+  .slidertitoloup {
+    display: block;
+  }
+
+  .slidertitolodown {
+    display: none;
+  }
+
+  #center-card {
+    text-align: start;
+    margin: 0px;
+    margin-top: 80px;
+    width: 75%;
+    margin-left: -30px;
+  }
+
+  #pclines {
+    display: none;
+  }
+
+  #mobilelines {
+    display: none;
+  }
+
+  .lines-p {
+    width: 90%;
+  }
+
+  .lines-outcont {
+    padding: 25px;
+  }
+
+  .lines-title {
+    font-size: 30px;
+  }
+
+  .bottomcardscontainer {
+    margin: 20px;
+  }
+
+  .cardbottom {
+    height: 430px;
+    box-shadow: 0px 6px 22px 4px rgba(109, 109, 109, 0.59);
+    border-radius: 8px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    width: 20vw;
+    transition: all 0.3s;
+  }
+
+  .cardbottomfoto {
+    height: 40%;
+    width: 100%;
+    overflow: hidden;
+
+  }
+
+  .bardcontainer {
+    margin: 0px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+
+  .cardBbottom {
+    margin-top: 30px;
+  }
+
+  #contactWrapper {
+    width: 75%;
+  }
+
+  #mobilethreepar {
+    display: none;
+  }
+
+  #pcthreepar {
+    display: block;
+  }
+
+  #midpolimobile {
+    display: none;
+  }
+
+  #midpolipc {
+    display: block;
+  }
+
+  #pchalfpic {
+    display: block;
+  }
+
+  #mobilehalfpic {
+    display: none;
+    margin-top: 220px;
   }
 }

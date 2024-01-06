@@ -1,7 +1,7 @@
 import Footer2 from "./Footer2"
 import Divided from "./Divided"
 import HalfPicture from "./HalfPicture"
-import Header from "./Header"
+import RealHeader from "./RealHeader"
 import Lines from "./Lines"
 import Maps from "./Maps"
 import MapTilerMap from "./MapTilerMap"
@@ -25,7 +25,7 @@ function Preventivo(){
     
     return(
         <div>
-            <Header title="PREVENTIVO"/>
+            <RealHeader title="PREVENTIVO"/>
             <GoogleMaps/>
             <StepperProva/>
             <Footer2/>

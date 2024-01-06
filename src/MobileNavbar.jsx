@@ -5,18 +5,23 @@ function MobileNavbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     const [expandedIndex, setExpandedIndex] = useState(null);
 
+    const handleNavToggle = () => {
+        setIsNavExpanded(!isNavExpanded);
+        if (isNavExpanded) {
+            setExpandedIndex(null);
+            resetDropdownPositions();
+        }
+    };
 
     const moveDown = (height, index) => {
-        const totalHeight = height * 50; // Assumendo che ogni sottolink sia alto 50px
+        const totalHeight = height * 50; // Assuming each sublink is 50px high
 
-        // Chiudi il dropdown se è già aperto e resetta la posizione
         if (expandedIndex === index) {
             setExpandedIndex(null);
             resetDropdownPositions();
         } else {
-            // Altrimenti, apri il nuovo dropdown e sposta gli altri in base all'altezza necessaria
             setExpandedIndex(index);
-            for (let i = 1; i <= 5; i++) {
+            for (let i = 1; i <= 6; i++) {
                 const dropdown = document.getElementById(`nav${i}`);
                 const content = dropdown.getElementsByClassName('dropdown-content')[0];
                 if (dropdown) {
@@ -25,7 +30,6 @@ function MobileNavbar() {
                     } else {
                         dropdown.style.transform = 'translateY(0px)';
                     }
-                    // Se è il dropdown corrente, toggle la visibilità del contenuto, altrimenti nascondilo
                     if (i === index) {
                         content.style.display = content.style.display === 'block' ? 'none' : 'block';
                     } else {
@@ -37,107 +41,89 @@ function MobileNavbar() {
     };
 
     const resetDropdownPositions = () => {
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 6; i++) {
             const dropdown = document.getElementById(`nav${i}`);
-            const content = dropdown.getElementsByClassName('dropdown-content')[0];
             if (dropdown) {
+                const content = dropdown.getElementsByClassName('dropdown-content')[0];
                 dropdown.style.transform = 'translateY(0px)';
-                content.style.display = 'none'; // Assicurati che i contenuti dei dropdown siano nascosti
+                content.style.display = 'none';
             }
         }
     };
 
-    const handleNavToggle = () => {
-        setIsNavExpanded(!isNavExpanded);
-        // Se il menu nav si sta chiudendo, resetta anche la posizione dei dropdown
-        if (isNavExpanded) {
-            setExpandedIndex(null);
-            resetDropdownPositions();
-        }
-    };
-
     return (
-        <nav className="mobile-navbar">
-            <div className="nav-header">
-                <button
-                    onClick={() => setIsNavExpanded(!isNavExpanded)}
-                    style={{
-                        marginLeft: isNavExpanded ? '80px' : '0px',
-                        width: "80px",
-                        paddingLeft: isNavExpanded ? "200px" : "0px",
-                        paddingTop: "10px",
-                        backgroundColor: isNavExpanded ? '#222' : 'transparent',
-                        marginLeft: '-50px',
-                        position: isNavExpanded ? "fixed" : "inherit",
-                        display: isNavExpanded ? 'none' : 'block'
-                    }}
-                    className="nav-icon"
-                >
-                    {isNavExpanded ? '✕' : '☰'}
+        <nav className="mobile-navbar w-100">
+            <div className="nav-header w-100">
+                <button onClick={handleNavToggle} className="nav-icon">
+                    ☰
                 </button>
-                <Link to="/" className="logo-link mt-3">
-                    <div className="d-flex flex-row align-items-center mr-5">
-                        <img
-                            src="../public/assets/logo.webp"
-                            className="logo"
-                            alt="Logo"
-                            style={{ display: isNavExpanded ? 'none' : 'block' }}
-                        />
-                        <img
-                            src="../public/assets/logo2.webp"
-                            className="logo2"
-                            alt="Logo"
-                            style={{ display: isNavExpanded ? 'none' : 'block' }}
-                        />
-                    </div>
-                </Link>
+                <div className='w-100 d-flex flex-row justify-content-center'>
+                    <Link to="/" className=" ml-5 logo-link mt-3 w-100">
+                        <div className="d-flex flex-row align-items-center w-100 justify-contnt-center">
+                            <img
+                                src="../public/assets/logo.webp"
+                                className="logo"
+                                alt="Logo"
+                                style={{ display: isNavExpanded ? 'none' : 'block' }}
+                            />
+                            <img
+                                src="../public/assets/logo2.webp"
+                                className="logo2"
+                                alt="Logo"
+                                style={{ display: isNavExpanded ? 'none' : 'block' }}
+                            />
+                        </div>
+                    </Link>
+                </div>
             </div>
+            <div>
 
-            <div className={`nav-menu ${isNavExpanded ? 'expanded' : ''}`} style={{marginLeft: isNavExpanded ? "-30px" : "-50px"}}>
-            <button  onClick={handleNavToggle}  style={{width:"300px", marginLeft: isNavExpanded ? '80px' : '0px',   paddingTop: "20px", backgroundColor: isNavExpanded ? '#222' : 'transparent', marginLeft: '-50px', position: isNavExpanded ? "fixed" : "inherit" , display: isNavExpanded ? 'block' : 'none', paddingLeft:"240px"}} className="nav-icon">
-                    {isNavExpanded ? '✕' : '☰'}
-                </button>
-                <div className="dropdown mt-5" id="nav1" onClick={() => moveDown(2, 1)}>
-                    <button className="dropbtn">Azienda</button>
-                    <div className="dropdown-content">
-                        <Link className="dropdown-item" to="/">Home</Link>
-                        <Link className="dropdown-item" to="/contatti">Contatti</Link>
+                <div className={`nav-menu ${isNavExpanded ? 'expanded' : ''}`}>
+                    <div className='w-100 d-flex flex-row justify-content-end p-3'>
+                        <i class="fa-solid fa-xmark white" onClick={handleNavToggle}></i>
                     </div>
-                </div>
-
-                <div className="dropdown" id="nav2" onClick={() => moveDown(9, 2)}>
-                    <button className="dropbtn">Servizi</button>
-                    <div className="dropdown-content">
-                        <Link className="dropdown-item" to="/coppi">Coppi</Link>
-                        <Link className="dropdown-item" to="/marsigliesi">Tegole marsigliesi</Link>
-                        <Link className="dropdown-item" to="/portoghesi">Tegole portoghesi</Link>
-                        <Link className="dropdown-item" to="/coibentati">Pannelli coibentati</Link>
-                        <Link className="dropdown-item" to="/lamiera">Lamiera</Link>
-                        <Link className="dropdown-item" to="/lineevita">Linee vita</Link>
-                        <Link className="dropdown-item" to="/struttura">Struttura in legno</Link>
-                        <Link className="dropdown-item" to="/cappotto">Cappotto termico</Link>
-                        <Link className="dropdown-item" to="/insonorizzazione">Insonorizzazione</Link>
+                    <div className="dropdown pl-3" id="nav1" onClick={() => moveDown(2, 1)}>
+                        <button className="dropbtn">Azienda</button>
+                        <div className="dropdown-content">
+                            <Link to="/">Home</Link>
+                            <Link to="/contatti">Contatti</Link>
+                        </div>
                     </div>
-                </div>
-
-                <div className="dropdown" id="nav3" onClick={() => moveDown(1, 3)}>
-                    <button className="dropbtn">Portfolio</button>
-                    <div className="dropdown-content">
-                        <Link className="dropdown-item" to="/portfolio">I nostri lavori</Link>
+                    <div className="dropdown pl-3" id="nav2" onClick={() => moveDown(5, 2)}>
+                        <button className="dropbtn">Servizi</button>
+                        <div className="dropdown-content">
+                            <Link to="/coppi">Coppi</Link>
+                            <Link to="/marsigliesi">Tegole marsigliesi</Link>
+                            <Link to="/portoghesi">Tegole portoghesi</Link>
+                            <Link to="/coibentati">Pannelli coibentati</Link>
+                            <Link to="/lamiera">Lamiera</Link>
+                        </div>
                     </div>
-                </div>
-
-                <div className="dropdown" id="nav4" onClick={() => moveDown(1, 4)}>
-                    <button className="dropbtn">Poliuree</button>
-                    <div className="dropdown-content">
-                        <Link className="dropdown-item" to="/poliuree">Informazioni Poliuree</Link>
+                    <div className="dropdown pl-3" id="nav3" onClick={() => moveDown(2, 3)}>
+                        <button className="dropbtn">Struttura</button>
+                        <div className="dropdown-content">
+                            <Link to="/lineevita">Linee vita</Link>
+                            <Link to="/struttura">Struttura in legno</Link>
+                        </div>
                     </div>
-                </div>
-
-                <div className="dropdown" id="nav5" onClick={() => moveDown(1, 5)}>
-                    <button className="dropbtn">Preventivo</button>
-                    <div className="dropdown-content">
-                        <Link className="dropdown-item" to="/preventivo">Richiedi un Preventivo</Link>
+                    <div className="dropdown pl-3" id="nav4" onClick={() => moveDown(2, 4)}>
+                        <button className="dropbtn">Isolamento</button>
+                        <div className="dropdown-content">
+                            <Link to="/cappotto">Cappotto termico</Link>
+                            <Link to="/insonorizzazione">Insonorizzazione</Link>
+                        </div>
+                    </div>
+                    <div className="dropdown pl-3" id="nav5" onClick={() => moveDown(1, 5)}>
+                        <button className="dropbtn">Poliuree</button>
+                        <div className="dropdown-content">
+                            <Link to="/poliuree">Informazioni Poliuree</Link>
+                        </div>
+                    </div>
+                    <div className="dropdown pl-3" id="nav6" onClick={() => moveDown(1, 6)}>
+                        <button className="dropbtn">Preventivo</button>
+                        <div className="dropdown-content">
+                            <Link to="/preventivo">Richiedi un Preventivo</Link>
+                        </div>
                     </div>
                 </div>
             </div>

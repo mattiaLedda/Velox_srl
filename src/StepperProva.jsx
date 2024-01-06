@@ -89,10 +89,10 @@ export default function StepperProva() {
 
   return (
     
-    <Box sx={{ width: "60%", display: "flex", flexDirection: "column",  justifyContent:"center" , margin:"auto", marginTop: "50px"}}>
+    <Box sx={{ width: "100%", display: "flex", flexDirection: "column",  justifyContent:"center" , margin:"auto", marginTop: "50px"}}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
-          <Step key={label} completed={completed[index]}>
+          <Step key={label} completed={completed[index]} className="m-0">
             <StepButton color="inherit" onClick={handleStep(index)}>
               {label}
             </StepButton>

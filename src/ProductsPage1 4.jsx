@@ -1,5 +1,5 @@
 import Footer2 from "./Footer2";
-import Header from "./Header";
+import RealHeader from "./RealHeader";
 import ImageParagraph from "./ImageParagraph";
 import Paragraph from "./Paragraph";
 import TopFooter from "./TopFooter";
@@ -10,10 +10,9 @@ function ProductsPage1(props){
     const prodotto = props.product
     return(
         <div>
-            <Header/>
+            <RealHeader/>
             <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text}/>
             <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text}/>
-            
             <Footer2/>
         </div>
     )
