@@ -16,19 +16,34 @@ import paragraphs from "../paragraphs"
 import ImageParagraph from "./ImageParagraph"
 import imagepar from "../imagepar"
 import ProductsPage1 from "./ProductsPage1"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import GoogleMaps from "./GoogleMaps"
 
 
 function Preventivo(){
+    const [googleMapsData, setGoogleMapsData] = useState(null);
+
+    const handleGoogleMapsDataChange = (data) => {
+        setGoogleMapsData(data);
+    };
+
+    useEffect(()=>{
+        console.log(googleMapsData)
+    },[])
+
+    useEffect(()=>{
+        console.log(googleMapsData)
+    },[googleMapsData])
     
     return(
         <div>
-            <RealHeader title="PREVENTIVO"/>
-            <GoogleMaps/>
-            <StepperProva/>
-            <Footer2/>
+            <RealHeader title="PREVENTIVO" />
+            <GoogleMaps onGoogleMapsDataChange={handleGoogleMapsDataChange} />
+            {   googleMapsData &&
+                <StepperProva googleMapsData={googleMapsData} style={{display: googleMapsData !== null ? "block" : "none"}} />
+            }
+            <Footer2 />
         </div>
     )
 }

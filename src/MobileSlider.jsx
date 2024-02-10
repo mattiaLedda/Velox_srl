@@ -2,7 +2,7 @@
 function MobileSlider(props) {
     return (
         <div>
-            <h4 id="slidertitolo" className=" text-black text-center ">
+            <h4 id="slidertitolo" className=" text-black text-center mb-5">
                 {props.title}
             </h4>
             <div className="d-flex flex-row m-0 w-100 align-items-center">

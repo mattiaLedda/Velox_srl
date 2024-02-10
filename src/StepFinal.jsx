@@ -10,14 +10,14 @@ const serviceId = "service_px5bltm";
 const templateId = "template_blnjifs";
 const userId = "B5Zd4GopwjNHKb9C2"; 
 
-function StepFinal({ preventivo }) {
+function StepFinal({ preventivo, handleReset }) {
   console.log(preventivo)
   const messageForMail = "Ciao " + preventivo.infoUser.nome + " " + preventivo.infoUser.cognome + ", come da te richiesto, ti confermiamo il prezzo della simulazione di preventivo fatta sul nostro sito";
   
     const card = {
         boxShadow: "0 8px 12px rgba(21, 119, 206, 0.5)",
         maxWidth: "544px",
-        height: "656px",
+        height: "500px",
         borderRadius: "16px",
     }
   
@@ -45,7 +45,7 @@ function StepFinal({ preventivo }) {
   };
 
   const title = {
-    fontSize: "34pt",
+    fontSize: "25pt",
     color: "#1577CE",
     fontFamily: "Arial, sans-serif",
     fontWeight: "bold",
@@ -108,18 +108,16 @@ function StepFinal({ preventivo }) {
   }
   
   const buttonT = {
-    backgroundColor: "#B8FF21",
-    height: "85px",
-    width: "340px",
+    backgroundColor: "transparent",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "32px",
-    fontSize: "20pt",
-    color: "#000000",
+    borderRadius: "3px",
+    fontSize: "20px",
     fontFamily: "Arial, sans-serif",
     textAlign: "center",
     fontWeight: "bold",
+    border: "2px solid"
   }
 
   const Lavorazioni = {
@@ -175,12 +173,13 @@ function StepFinal({ preventivo }) {
       .catch((error) => {
         console.error("Errore nell'invio dell'e-mail:", error);
       });
+      handleReset()
   };
 
   return (
     <div style={divSpace}>
       {calculated && (
-        <div>
+        <div className="w-100 d-flex flex-row justify-content-center align-items-center ">
         <Card style={card}>
           <CardContent>
             <div style={divText}>
@@ -196,11 +195,6 @@ function StepFinal({ preventivo }) {
             <div style={divTextSub}>
             <Typography style={subText} component="div">
               {Lavorazioni.SOSTITUZIONE_ISOLANTE.costo} €/m²
-              </Typography>
-            </div>
-            <div style={divDescription}>
-              <Typography style={subTextDescription} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.description}
               </Typography>
             </div>
            <div style={buttonC}>

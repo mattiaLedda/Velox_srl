@@ -12,16 +12,16 @@ function ProductsPage1(props) {
     const prodotto = props.product
     return (
         <div>
-            <RealHeader title={paragraphs[prodotto].title} />
-            <Paragraph title={paragraphs[prodotto].title} text={paragraphs[prodotto].text} />
+            <RealHeader title={imagepar[prodotto].title1} image={prodotto} />
+            <Paragraph title={imagepar[prodotto].title3} text={paragraphs[prodotto].text} />
             <div id="pcslider">
-                <ImageParagraph title={imagepar[prodotto].title} text={imagepar[prodotto].text} />
+                <ImageParagraph title={imagepar[prodotto].title2} text={imagepar[prodotto].text} image={prodotto} />
             </div>
             <div id="mobileslider">
-                <MobileSlider title={imagepar[prodotto].title} text={imagepar[prodotto].text} />
+                <MobileSlider title={imagepar[prodotto].title2} text={imagepar[prodotto].text} />
             </div>
             <h3 className='w-100 text-center car-title'>I nostri lavori</h3>
-            <Carousel />
+            <Carousel image={prodotto} />
             <Footer2 />
         </div>
     )

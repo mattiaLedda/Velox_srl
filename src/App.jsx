@@ -11,6 +11,7 @@ import ProductsPage1 from "./ProductsPage1"; // Assumendo che il tuo file sia ch
 // Importa l'oggetto imagepar per creare dinamicamente le rotte
 import imagepar from "../imagepar";
 import ContactForm from "./Contatti";
+import ScrollToTop from "./ScrollToTop";
 
 // Creare un array di rotte per ogni chiave in imagepar
 
@@ -21,39 +22,39 @@ function App() {
 
   const dynamicRoutes = Object.keys(imagepar).map(key => {
     console.log(key)
-      return {
-          path: `/${key}`,
-          element: <ProductsPage1 product={key} />
-      };
+    return {
+      path: `/${key}`,
+      element: <ScrollToTop><ProductsPage1 product={key} /></ScrollToTop>
+    };
   });
-  
+
   const router = createBrowserRouter([
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/tegole",
-        element: <Tegole />,
-      },
-      {
-        path: "/preventivo",
-        element: <Preventivo/>
-      },
-      {
-        path:"/contatti",
-        element: <ContactForm/>
-      },
-      {
-        path: "/poliuree",
-        element: <Poliuree/>
-      },
-      ...dynamicRoutes // Aggiungi le rotte dinamiche qui
+    {
+      path: "/",
+      element: <ScrollToTop><Home /></ScrollToTop>,
+    },
+    {
+      path: "/tegole",
+      element: <ScrollToTop><Tegole /></ScrollToTop>,
+    },
+    {
+      path: "/preventivo",
+      element: <ScrollToTop><Preventivo /></ScrollToTop>
+    },
+    {
+      path: "/contatti",
+      element: <ScrollToTop><ContactForm /></ScrollToTop>
+    },
+    {
+      path: "/poliuree",
+      element: <ScrollToTop><Poliuree /></ScrollToTop>
+    },
+    ...dynamicRoutes // Aggiungi le rotte dinamiche qui
   ]);
-  
-    return (
-        <RouterProvider router={router} />
-    );
+
+  return (
+      <RouterProvider router={router} />
+  );
 }
 
 export default App;

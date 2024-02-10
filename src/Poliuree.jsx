@@ -22,7 +22,7 @@ const polipar = {
 function Poliuree() {
     return (
         <div>
-            <RealHeader title="POLIUREE" />
+            <RealHeader title="POLIUREE" image="poliuree" />
             <div id="pcthreepar">
                 <ThreePar icon={threeparag.first.icon} title={threeparag.first.title} text={threeparag.first.text} />
             </div>

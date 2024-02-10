@@ -165,7 +165,7 @@
   align-content: center;
   margin: auto;
   gap: 80px;
-  top: 250px;
+  top: 350px;
   left: 0;
 }
 
@@ -275,12 +275,16 @@ a:hover::after {
 }
 
 #sliderimage1 {
-  background-image: url("../public/assets/fofotetti7.jpg");
+  background-image: url("../public/assets/fototetti28.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 400px;
 }
 
 #sliderimage2 {
-  background-image: url("../public/assets/fototetti6.jpg");
+  background-image: url("../public/assets/fototetti25 2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 400px;
 }
 
@@ -1026,7 +1030,9 @@ a:hover::after {
   /* Regola questa dimensione come necessario */
 }
 
-
+.navmoblogo{
+  padding-top: 20px;
+}
 /* Icona burger e X */
 .nav-icon {
   font-size: 24px;
@@ -1035,6 +1041,7 @@ a:hover::after {
   color: white;
   cursor: pointer;
   margin-top: -25px;
+  padding-top: 20px;
 }
 
 /* Nav menu styles */
@@ -1137,6 +1144,9 @@ a:hover::after {
 }
 
 @media (max-width: 500px) {
+  .nav-icon {
+    margin-left: -25px;
+  }
   #centr-contmobilereal{
     display: block;
   }

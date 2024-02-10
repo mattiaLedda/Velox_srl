@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Carousel() {
+function Carousel({ image }) {
+    console.log("prodotto: " +  image)
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [
-        "../public/assets/fototetti1.webp",
+        `../public/assets/${image}.jpg`,
         "../public/assets/fototetti2.webp",
         "../public/assets/fototetti3.webp"
     ];

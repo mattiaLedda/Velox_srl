@@ -2,22 +2,25 @@ import React from "react";
 import CardCenter from "./CardCenter"; 
 
 const cardContents = {
-    "Il nostro team": {
-        title: "Il nostro team",
-        text: "Il nostro team di esperti è specializzato nella realizzazione di tetti resistenti e duraturi. Con anni di esperienza alle spalle, siamo pronti a trasformare le vostre idee in realtà, garantendo un servizio professionale e una grande attenzione ai dettagli. Lavoriamo con passione ed entusiasmo, per offrire soluzioni innovative che soddisfino le esigenze di ogni cliente."
-    },
-    "Preventivo": {
-        title: "Preventivo",
-        text: "Offriamo un servizio di preventivo preciso e personalizzato, grazie all'uso di tecnologie avanzate. Tracciamo la superficie del vostro tetto utilizzando Google Maps, permettendovi di selezionare i materiali desiderati. Questo metodo innovativo ci permette di fornire un preventivo dettagliato e accurato, aiutandovi a pianificare il vostro progetto con chiarezza e trasparenza."
-    },
-    "Velocità": {
-        title: "Velocità",
-        text: "Comprendiamo l'importanza di rispettare i tempi previsti, ed è per questo che ci impegniamo a lavorare con efficienza e velocità senza compromettere la qualità. Il nostro team esperto è in grado di gestire progetti di qualsiasi dimensione, garantendo una consegna tempestiva e soddisfacendo le vostre aspettative in termini di tempistiche."
-    },
-    "Materiali": {
-        title: "Materiali",
-        text: "Utilizziamo solo materiali di alta qualità, garantendo tetti duraturi e resistenti alle intemperie. La nostra vasta gamma di materiali include soluzioni per ogni esigenza e budget. Siamo sempre alla ricerca di nuovi materiali e tecnologie per offrire opzioni sempre più performanti e sostenibili, garantendo un ottimo rapporto qualità-prezzo."
-    }
+  "Materiali": {
+    title: "Materiali",
+    text: (
+      <span>
+        Utilizziamo solo <span style={{ fontWeight: 900 }}>materiali di alta qualità</span>, garantendo tetti duraturi e resistenti alle intemperie. Come <span style={{ fontWeight: 900 }}>installatori certificati BMI</span>, ci impegniamo a fornire soluzioni all'avanguardia per l'isolamento e la protezione delle strutture, inclusa l'installazione di <span style={{ fontWeight: 900 }}>Isotecnica</span>, per garantire il massimo delle performance e della sostenibilità.
+      </span>
+    )},
+  "Il nostro team": {
+      title: "Il nostro team",
+      text: (<span>Il nostro team di esperti è specializzato nella realizzazione di tetti resistenti e duraturi. Con <span style={{ fontWeight: 900 }}>anni di esperienza</span> alle spalle, siamo pronti a trasformare le vostre idee in realtà, garantendo un servizio professionale e una grande attenzione ai dettagli. Lavoriamo con passione ed entusiasmo, per offrire <span style={{ fontWeight: 900 }}>soluzioni innovative</span> che soddisfino le esigenze di ogni cliente.</span>)
+  },
+  "Preventivo": {
+      title: "Preventivo",
+      text: (<span>Offriamo un servizio di <span style={{ fontWeight: 900 }}>preventivo grauito</span> e personalizzato, grazie all'uso di tecnologie avanzate. Tracciamo la superficie del vostro tetto utilizzando Google Maps, permettendovi di selezionare i materiali desiderati. Questo metodo <span style={{ fontWeight: 900 }}>innovativo</span> ci permette di fornire un preventivo dettagliato e accurato, aiutandovi a pianificare il vostro progetto con chiarezza e trasparenza.</span>)
+  },
+  "Velocità": {
+      title: "Velocità",
+      text: (<span>Comprendiamo l'importanza di rispettare i tempi previsti, ed è per questo che ci impegniamo a lavorare con <span style={{ fontWeight: 900 }}>efficienza e velocità</span> senza compromettere la qualità. Il nostro team esperto è in grado di gestire progetti di qualsiasi dimensione, garantendo una <span style={{ fontWeight: 900 }}>consegna tempestiva</span> e soddisfacendo le vostre aspettative in termini di tempistiche.</span>)
+  }
 };
 
 function CenterCards() {

@@ -1,11 +1,22 @@
 function MobileCenterHeader({ title }) {
-    
+    const getFontSizeStyle = () => {
+        console.log(title)
+        // Utilizzo di window.innerWidth per controllare la larghezza dello schermo
+        const screenWidth = window.innerWidth;
+        const isMobile = screenWidth < 600; // Ad esempio, consideriamo 'mobile' uno schermo sotto i 768px
+        if(title == "Insonorizzazione" && isMobile) {
+            return {fontSize: "32px"};
+        } else {
+            return {fontSize: "50px"};
+        }
+    };
     if(title) {
+        const fontSizeStyle = getFontSizeStyle();
         const upperCaseTitle = title.toUpperCase();
         return (
             <div className="d-flex flex-row align-items-center position-absolute center-cont">
                 
-                <div id="centerheader" className="m-auto">
+                <div id="centerheader" className="m-auto" style={fontSizeStyle}>
                     {upperCaseTitle}
                 </div>
             </div>

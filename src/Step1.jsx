@@ -5,7 +5,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { InfoEdificio } from "../public/model/InfoEdificio";
 import PropTypes from 'prop-types';
 
-const Step1 = ({ onComplete }) => {
+const Step1 = ({ onComplete, area }) => {
   const [edificioInfo, setEdificioInfo] = useState(new InfoEdificio());
 
   const handleInputChange = (event, field) => {
@@ -43,7 +43,7 @@ const Step1 = ({ onComplete }) => {
                 id="superficieTetto"
                 label="Superficie tetto"
                 variant="standard"
-                value={edificioInfo.superficieTetto}
+                value={Math.round(area * 10) / 10}
                 onChange={(e) => handleInputChange(e, "superficieTetto")}
                 InputProps={{
                   endAdornment: <InputAdornment position="end">m²</InputAdornment>,

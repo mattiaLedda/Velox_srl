@@ -13,13 +13,13 @@ import Step4 from "./Step4";
 import StepFinal from "./StepFinal";
 
 const steps = [
-  "Info edificio",
-  "Tipologia tetto",
-  "Info interessato",
-  "Conferma dati",
+  "Lavorazioni",
+  "Tipologia",
+  "Info",
+  "Conferma",
 ];
 
-export default function StepperProva() {
+export default function StepperProva({ googleMapsData }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const [preventivo, setPreventivo] = React.useState(new RichiestaPrev());
@@ -85,6 +85,7 @@ export default function StepperProva() {
     setActiveStep(0);
     setCompleted({});
     setPreventivo(new RichiestaPrev());
+    googleMapsData = 0
   };
 
   return (
@@ -103,7 +104,7 @@ export default function StepperProva() {
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-             {<StepFinal preventivo={preventivo}/>}
+             {<StepFinal preventivo={preventivo} handleReset={handleReset}/>}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
@@ -113,7 +114,7 @@ export default function StepperProva() {
         ) : (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1, py: 1 }}>
-              {activeStep === 0 && <Step1 onComplete={handleStep1Complete} />}
+              {activeStep === 0 && <Step1 onComplete={handleStep1Complete} area={googleMapsData} />}
               {activeStep === 1 && <Step2 onCompleteTetti={handleStep2Complete}/>}
               {activeStep === 2 && <Step3 onCompleteStep3={handleStep3Complete}/>}
               {activeStep === 3 && <Step4 preventivo={preventivo}/>}
@@ -128,9 +129,9 @@ export default function StepperProva() {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }}>
+              {/* <Button onClick={handleNext} sx={{ mr: 1 }}>
                 Next
-              </Button>
+              </Button> */}
               {activeStep !== steps.length &&
                 (completed[activeStep] ? (
                   <Typography

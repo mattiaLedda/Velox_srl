@@ -40,10 +40,11 @@ const ContactForm = () => {
                     <div className="my-4 w-100">
                         <h2 className="text-center">Informazioni Azienda</h2>
                         <ul className="list-group w-100">
-                            <li className="list-group-item"><strong>Nome:</strong> Nome Azienda Srl</li>
-                            <li className="list-group-item"><strong>Sede:</strong> Via Esempio, 123, Città, Stato</li>
-                            <li className="list-group-item"><strong>Email:</strong> info@azienda.it</li>
-                            <li className="list-group-item"><strong>Telefono:</strong> +39 0123 456789</li>
+                            <li className="list-group-item"><strong>Nome:</strong> Velox Srl</li>
+                            <li className="list-group-item"><strong>Sede:</strong> Via privata San Romanello 48 Milano</li>
+                            <li className="list-group-item"><strong>Email:</strong> velox.impiantisrl@gmail.com</li>
+                            <li className="list-group-item"><strong>PEC:</strong> velox.impiantisrl@pec.it</li>
+                            <li className="list-group-item"><strong>Telefono:</strong> +393509554496</li>
                         </ul>
                     </div>
                     <div className="my-4 w-100">

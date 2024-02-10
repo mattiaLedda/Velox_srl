@@ -81,15 +81,25 @@ const Step2 = ({ onCompleteTetti }) => {
 
   return (
     <form>
-      <Grid container spacing={2} style={{ marginTop: "20px" }}>
+      <Grid container spacing={2} style={{ marginTop: "20px", width: "100%", display:"flex",
+            flexDirection:"row",
+            justifyContent:"center",
+            alignItems:"center" }}>
         {roofTypes.map((roofType) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={roofType.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={roofType.id} style={{
+            maxWidth: "230px",
+            cursor: "pointer",
+            display:"flex",
+            flexDirection:"row",
+            justifyContent:"center",
+            alignItems:"center"
+          }}>
             {selectedCard === roofType.id ? (
               <StyledSelectedCard
                 onClick={() => handleCardClick(roofType.id)}
                 style={{
                   maxWidth: "230px",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
               >
                 <CardMedia

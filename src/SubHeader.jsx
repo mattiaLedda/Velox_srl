@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SubHeader() {
     return (
         <div id="subheader" className="position-absolute">
@@ -6,8 +8,8 @@ function SubHeader() {
             </p>
 
             <div className="d-flex flex-row nav-buttons">
-                <button id="button1" className="p-2">Contattaci</button>
-                <button className="button p-2" id="button2">Preventivo</button>
+                <Link to="/contatti"> <button id="button1" className="p-2">Contattaci</button></Link>
+                <Link to="/preventivo"><button className="button p-2" id="button2">Preventivo</button></Link>
             </div> 
 
         </div>

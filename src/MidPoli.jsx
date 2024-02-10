@@ -3,11 +3,11 @@ import React from 'react';
 function MidPoli(){
     return(
         <div className="w-100 d-flex flex-row poli-wrap">
-            <div id="poli-bid" className="w-50 h-100">
+            <div id="poli-bid" className="w-50 h-100 d-flex flex-column justify-content-center">
               <img 
               id="bido"
               src="../public/assets/bido.png"
-              className="w-100 h-100"
+              className="w-100"
               alt="Immagine contenitori poliurea"/>
             </div>
             <div id="poli-cont" className="w-50">

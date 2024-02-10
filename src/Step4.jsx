@@ -26,7 +26,7 @@ const pStyle = {
   color: "#1577CE",
 }
 
-function Step4({ preventivo }) {
+function Step4({ preventivo, area }) {
   return (
     <div>
 
@@ -37,26 +37,9 @@ function Step4({ preventivo }) {
         <AccordionDetails style={textStyle}>
           <Typography variant="h5">Superficie tetto:</Typography>
           <br />
-          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio.superficieTetto} m²</Typography>
+          <Typography variant="h6" style={pStyle}>{Math.round(area * 10) / 10} m²</Typography>
           <br />
 
-          <Typography variant="h5">Indirizzo:</Typography>
-          <br />
-
-          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio.via}</Typography>
-          <br />
-
-          <Typography variant="h5">Città:</Typography>
-          <br />
-          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio.citta}</Typography>
-          <br />
-          <Typography variant="h5">Provincia:</Typography>
-          <br />
-          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio.provincia}</Typography>
-          <br/>
-          <Typography variant="h5">Cap:</Typography>
-          <br />
-          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio.cap}</Typography>
         </AccordionDetails>
       </Accordion>
 

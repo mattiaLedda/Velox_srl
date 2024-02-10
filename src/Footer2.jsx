@@ -1,5 +1,6 @@
 // Footer.js
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import logo from '../public/assets/logo2.webp';   
 
@@ -24,46 +25,45 @@ function Footer2() {
             <div className="footer-links1">
               <div className="column1">
                 <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#services">Services</a></li>
-                  <li><a href="#products">Products</a></li>
+                  <Link to="/"><li><a>Home</a></li></Link>
+                  <Link to="/contatti"><li><a>Contatti</a></li></Link>
+                  <Link to="/preventivo"><li><a>Preventivo</a></li></Link>
                 </ul>
               </div>
               <div className="column1">
                 <ul>
-                  <li><a href="#about-us">About Us</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="#faq">FAQ</a></li>
+                <Link to="/coppi"><li><a>Coppi</a></li></Link>
+                <Link to="/marsigliesi"><li><a>Marsigliesi</a></li></Link>
+                <Link to="/portoghesi"><li><a>Portoghesi</a></li></Link>
                 </ul>
               </div>
               <div className="column1">
                 <ul>
-                  <li><a href="#blog">Blog</a></li>
-                  <li><a href="#testimonials">Testimonials</a></li>
-                  <li><a href="#careers">Careers</a></li>
+                <Link to="/coibentati"><li><a>Coibentati</a></li></Link>
+                <Link to="/lamiera"><li><a>Lamiera</a></li></Link>
+                <Link to="/lineevita"><li><a>Linee Vita</a></li></Link>
                 </ul>
               </div>
               <div className="column1">
                 <ul>
-                  <li><a href="#support">Support</a></li>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#services">Services</a></li>
+                <Link to="/struttura"><li><a>Struttura</a></li></Link>
+                <Link to="/cappotto"><li><a>Termoisolamento</a></li></Link>
+                <Link to="/insonorizzazione"><li><a>Insonorizzazione</a></li></Link>
                 </ul>
               </div>
             </div>
             <div className="footer-social1">
               <h5>Contattaci</h5>
               <ul className="social-icons1">
-                <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i className="fa-solid fa-phone"></i></a></li>
-                <li><a href="#"><i className="fa-solid fa-envelope"></i></a></li>
+                <li><a href="https://wa.me/+393509554496"><i className="fab fa-whatsapp fs-2 m-3"></i></a></li>
+                <li><a href="https://www.instagram.com/veloxsrl"><i className="fab fa-instagram  fs-2 m-3"></i></a></li>
+                <li><a href="tel:3509554496"><i className="fa-solid fa-phone  fs-2 m-3"></i></a></li>
+                <li><a href="mailto:velox.impiantisrl@gmail.com"><i className="fa-solid fa-envelope  m-3 fs-2"></i></a></li>
               </ul>
             </div>
             <div className="footer-info1">
-              <p>&copy; 2023 Your Company Name. All rights reserved.</p>
-              <p>P.IVA 01234567890</p>
+              <p>&copy; Velox Srl. Tutti i diritti riservati.</p>
+              <p>P.IVA 10317070968</p>
             </div>
           </div>
         </footer>

@@ -13,7 +13,7 @@ const images = [
 ];
 
 
-function RealHeader({ title }) {
+function RealHeader({ title, image }) {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [zoomed, setZoomed] = useState(true);
     const [isMobileView, setIsMobileView] = useState(window.innerWidth < 1000);
@@ -21,7 +21,8 @@ function RealHeader({ title }) {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [
-        "../public/assets/fototetti1.webp",
+        image ? `../public/assets/${image}.jpg` : "../public/assets/coppi.jpg",
+        "../public/assets/coppi.jpg",
         "../public/assets/fototetti2.webp",
         "../public/assets/fototetti3.webp"
     ];

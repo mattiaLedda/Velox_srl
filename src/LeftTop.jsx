@@ -29,7 +29,7 @@ function LeftTop() {
                     </div>
 
                     <div className="dropdown">
-                        <Link className="link linktop dropdown-toggle" to="/tegole" data-toggle="dropdown">Servizi</Link>
+                        <Link className="link linktop dropdown-toggle"  data-toggle="dropdown">Servizi</Link>
                         <div className="dropdown-menu">
                             <Link className="dropdown-item" to="/coppi">Coppi</Link>
                             <Link className="dropdown-item" to="/marsigliesi">Tegole marsigliesi</Link>

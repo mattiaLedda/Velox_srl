@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function MobileNavbar() {
@@ -12,7 +12,9 @@ function MobileNavbar() {
             resetDropdownPositions();
         }
     };
-
+    useEffect(()=>{
+        moveDown(1,6)
+    }, [])
     const moveDown = (height, index) => {
         const totalHeight = height * 50; // Assuming each sublink is 50px high
 
@@ -38,6 +40,7 @@ function MobileNavbar() {
                 }
             }
         }
+        
     };
 
     const resetDropdownPositions = () => {
@@ -57,9 +60,9 @@ function MobileNavbar() {
                 <button onClick={handleNavToggle} className="nav-icon">
                     ☰
                 </button>
-                <div className='w-100 d-flex flex-row justify-content-center'>
+                <div className='w-100 d-flex flex-row justify-content-center mr-5 navmoblogo'>
                     <Link to="/" className=" ml-5 logo-link mt-3 w-100">
-                        <div className="d-flex flex-row align-items-center w-100 justify-contnt-center">
+                        <div className="d-flex flex-row align-items-center w-100 justify-content-center">
                             <img
                                 src="../public/assets/logo.webp"
                                 className="logo"
@@ -79,50 +82,50 @@ function MobileNavbar() {
             <div>
 
                 <div className={`nav-menu ${isNavExpanded ? 'expanded' : ''}`}>
-                    <div className='w-100 d-flex flex-row justify-content-end p-3'>
+                    <div className='w-100 d-flex flex-row justify-content-end p-3 mt-3'>
                         <i class="fa-solid fa-xmark white" onClick={handleNavToggle}></i>
                     </div>
                     <div className="dropdown pl-3" id="nav1" onClick={() => moveDown(2, 1)}>
                         <button className="dropbtn">Azienda</button>
                         <div className="dropdown-content">
-                            <Link to="/">Home</Link>
-                            <Link to="/contatti">Contatti</Link>
+                            <Link to="/" onClick={handleNavToggle}>Home</Link>
+                            <Link to="/contatti" onClick={handleNavToggle}>Contatti</Link>
                         </div>
                     </div>
                     <div className="dropdown pl-3" id="nav2" onClick={() => moveDown(5, 2)}>
                         <button className="dropbtn">Servizi</button>
                         <div className="dropdown-content">
-                            <Link to="/coppi">Coppi</Link>
-                            <Link to="/marsigliesi">Tegole marsigliesi</Link>
-                            <Link to="/portoghesi">Tegole portoghesi</Link>
-                            <Link to="/coibentati">Pannelli coibentati</Link>
-                            <Link to="/lamiera">Lamiera</Link>
+                            <Link to="/coppi" onClick={handleNavToggle}>Coppi</Link>
+                            <Link to="/marsigliesi" onClick={handleNavToggle}>Tegole marsigliesi</Link>
+                            <Link to="/portoghesi" onClick={handleNavToggle}>Tegole portoghesi</Link>
+                            <Link to="/coibentati" onClick={handleNavToggle}>Pannelli coibentati</Link>
+                            <Link to="/lamiera" onClick={handleNavToggle}>Lamiera</Link>
                         </div>
                     </div>
                     <div className="dropdown pl-3" id="nav3" onClick={() => moveDown(2, 3)}>
                         <button className="dropbtn">Struttura</button>
                         <div className="dropdown-content">
-                            <Link to="/lineevita">Linee vita</Link>
-                            <Link to="/struttura">Struttura in legno</Link>
+                            <Link to="/lineevita" onClick={handleNavToggle}>Linee vita</Link>
+                            <Link to="/struttura" onClick={handleNavToggle}>Struttura in legno</Link>
                         </div>
                     </div>
                     <div className="dropdown pl-3" id="nav4" onClick={() => moveDown(2, 4)}>
                         <button className="dropbtn">Isolamento</button>
                         <div className="dropdown-content">
-                            <Link to="/cappotto">Cappotto termico</Link>
-                            <Link to="/insonorizzazione">Insonorizzazione</Link>
+                            <Link to="/cappotto" onClick={handleNavToggle}>Cappotto termico</Link>
+                            <Link to="/insonorizzazione" onClick={handleNavToggle}>Insonorizzazione</Link>
                         </div>
                     </div>
                     <div className="dropdown pl-3" id="nav5" onClick={() => moveDown(1, 5)}>
                         <button className="dropbtn">Poliuree</button>
                         <div className="dropdown-content">
-                            <Link to="/poliuree">Informazioni Poliuree</Link>
+                            <Link to="/poliuree" onClick={handleNavToggle}>Informazioni Poliuree</Link>
                         </div>
                     </div>
                     <div className="dropdown pl-3" id="nav6" onClick={() => moveDown(1, 6)}>
                         <button className="dropbtn">Preventivo</button>
                         <div className="dropdown-content">
-                            <Link to="/preventivo">Richiedi un Preventivo</Link>
+                            <Link to="/preventivo" onClick={handleNavToggle}>Richiedi un Preventivo</Link>
                         </div>
                     </div>
                 </div>
