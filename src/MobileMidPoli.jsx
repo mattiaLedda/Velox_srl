@@ -6,7 +6,7 @@ function MobileMidPoli(){
             <div id="poli-bid" className="w-100 d-flex flex-column justify-content-center align-items-center">
               <img 
               id="bido"
-              src="../public/assets/bido.png"
+              src="../src/assets/bido.png"
               className="w-75"
               alt="Immagine contenitori poliurea"/>
             </div>

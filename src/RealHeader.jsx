@@ -7,9 +7,9 @@ import MobileNavbar from "./MobileNavbar";
 import MobileCenterHeader from "./MobileCenterHeader";
 
 const images = [
-    "../public/assets/fototetti5.webp",
-    "../public/assets/fototetti2.webp",
-    "../public/assets/fototetti3.webp"
+    "../src/assets/fototetti5.webp",
+    "../src/assets/fototetti2.webp",
+    "../src/assets/fototetti3.webp"
 ];
 
 
@@ -21,10 +21,10 @@ function RealHeader({ title, image }) {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [
-        image ? `../public/assets/${image}.webp` : "../public/assets/coppi.webp",
-        "../public/assets/coppi.webp",
-        "../public/assets/fototetti2.webp",
-        "../public/assets/fototetti3.webp"
+        image ? `../src/assets/${image}.webp` : "../src/assets/coppi.webp",
+        "../src/assets/coppi.webp",
+        "../src/assets/fototetti2.webp",
+        "../src/assets/fototetti3.webp"
     ];
 
     const goToPrev = () => {

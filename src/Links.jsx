@@ -9,12 +9,12 @@ function Links(){
             <div>
             <div className="d-flex flex-row align-items-center justify-content-center align-center">
                 <img
-                    src="../public/assets/logo.webp"
+                    src="../src/assets/logo.webp"
                     className="logo1"
                     alt="Logo"
                 />
                 <img
-                        src="../public/assets/logo2.webp"
+                        src="../src/assets/logo2.webp"
                         className="logo22"
                         alt="Logo"
                     />

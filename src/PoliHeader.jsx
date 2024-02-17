@@ -4,9 +4,9 @@ import NavBar from "./NavBar";
 import CenterHeader from "./CenterHeader";
 
 const images = [
-    "../public/assets/fototetti5.png",
-    "../public/assets/fototetti2.jpg",
-    "../public/assets/fototetti3.jpg"
+    "../src/assets/fototetti5.png",
+    "../src/assets/fototetti2.jpg",
+    "../src/assets/fototetti3.jpg"
 ];
 
 function PoliHeader(){

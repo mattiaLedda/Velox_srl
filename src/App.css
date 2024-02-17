@@ -275,14 +275,14 @@ a:hover::after {
 }
 
 #sliderimage1 {
-  background-image: url("../public/assets/fototetti28.jpg");
+  background-image: url("../src/assets/fototetti28.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
 }
 
 #sliderimage2 {
-  background-image: url("../public/assets/fototetti25 2.jpg");
+  background-image: url("../src/assets/fototetti25 2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
@@ -440,7 +440,7 @@ a:hover::after {
 }
 
 .h-pic-right {
-  background-image: url(../public/assets/poliuree2.webp);
+  background-image: url(../src/assets/poliuree2.webp);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -643,7 +643,7 @@ a:hover::after {
 }
 
 .lines-wrap {
-  background-image: url(../public/assets/sfondo.svg);
+  background-image: url(../src/assets/sfondo.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

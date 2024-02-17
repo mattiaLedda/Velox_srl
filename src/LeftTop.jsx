@@ -7,12 +7,12 @@ function LeftTop() {
                 <Link className="homelink" to="/">
                     <div className="d-flex flex-row align-items-center">
                         <img
-                            src="../public/assets/logo.webp"
+                            src="../src/assets/logo.webp"
                             className="logo"
                             alt="Logo"
                         />
                         <img
-                            src="../public/assets/logo2.webp"
+                            src="../src/assets/logo2.webp"
                             className="logo2"
                             alt="Logo"
                         />

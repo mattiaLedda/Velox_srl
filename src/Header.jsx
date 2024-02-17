@@ -7,9 +7,9 @@ import MobileNavbar from "./MobileNavbar";
 import MobileCenterHeader from "./MobileCenterHeader";
 
 const images = [
-    "../public/assets/fototetti5.webp",
-    "../public/assets/fototetti2.webp",
-    "../public/assets/fototetti3.webp"
+    "../src/assets/fototetti5.webp",
+    "../src/assets/fototetti2.webp",
+    "../src/assets/fototetti3.webp"
 ];
 
 function Header({ title }) {

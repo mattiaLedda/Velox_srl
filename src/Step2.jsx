@@ -29,14 +29,7 @@ const roofImages = [
   "/assets/Tetti/due_falde_assimetriche.png",
   "/assets/Tetti/a_padiglione.jpg",
   "/assets/Tetti/falda_unica.png",
-  "/assets/Tetti/tenda.png",
-  "/assets/Tetti/due_falde_padiglione.png",
-  "/assets/Tetti/volta.png",
-  "/assets/Tetti/mansarda.png",
-  "/assets/Tetti/padiglione_mansardato.png",
-  "/assets/Tetti/mansarda_padiglione.png",
-  "/assets/Tetti/shed.png",
-  "/assets/Tetti/croce.png",
+
 ];
 
 const StyledCard = styled(Card)({

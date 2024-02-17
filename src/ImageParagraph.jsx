@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 function ImageParagraph(props) {
-  const [imagePath, setImagePath] = useState(`../public/assets/${props.image}2.webp`);
+  const [imagePath, setImagePath] = useState(`../src/assets/${props.image}2.webp`);
 
   // Funzione per gestire l'errore di caricamento dell'immagine
   const handleImageError = () => {
-    setImagePath(`../public/assets/${props.image}.webp`); // Rimuove il "2" se l'immagine con "2" non esiste
+    setImagePath(`../src/assets/${props.image}.webp`); // Rimuove il "2" se l'immagine con "2" non esiste
   };
 
   useEffect(() => {

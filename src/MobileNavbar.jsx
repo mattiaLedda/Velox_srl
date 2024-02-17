@@ -64,13 +64,13 @@ function MobileNavbar() {
                     <Link to="/" className=" ml-5 logo-link mt-3 w-100">
                         <div className="d-flex flex-row align-items-center w-100 justify-content-center">
                             <img
-                                src="../public/assets/logo.webp"
+                                src="../src/assets/logo.webp"
                                 className="logo"
                                 alt="Logo"
                                 style={{ display: isNavExpanded ? 'none' : 'block' }}
                             />
                             <img
-                                src="../public/assets/logo2.webp"
+                                src="../src/assets/logo2.webp"
                                 className="logo2"
                                 alt="Logo"
                                 style={{ display: isNavExpanded ? 'none' : 'block' }}

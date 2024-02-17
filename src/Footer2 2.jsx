@@ -1,7 +1,7 @@
 // Footer.js
 import React from 'react';
 
-import logo from '../public/assets/logo2.webp';   
+import logo from '../src/assets/logo2.webp';   
 
 function Footer2() {
     return (
@@ -10,12 +10,12 @@ function Footer2() {
             <div className="footer-logo1">
             <div className="d-flex flex-row align-items-center">
                     <img
-                        src="../public/assets/logo.webp"
+                        src="../src/assets/logo.webp"
                         className="logo11"
                         alt="Logo"
                     />
                     <img
-                        src="../public/assets/logo2.webp"
+                        src="../src/assets/logo2.webp"
                         className="logo21"
                         alt="Logo"
                     />
