@@ -21,8 +21,8 @@ function RealHeader({ title, image }) {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const images = [
-        image ? `../public/assets/${image}.jpg` : "../public/assets/coppi.jpg",
-        "../public/assets/coppi.jpg",
+        image ? `../public/assets/${image}.webp` : "../public/assets/coppi.webp",
+        "../public/assets/coppi.webp",
         "../public/assets/fototetti2.webp",
         "../public/assets/fototetti3.webp"
     ];

@@ -8,20 +8,20 @@ import emailjs from "emailjs-com";
 
 const serviceId = "service_px5bltm";
 const templateId = "template_blnjifs";
-const userId = "B5Zd4GopwjNHKb9C2"; 
+const userId = "B5Zd4GopwjNHKb9C2";
 
-function StepFinal({ preventivo, handleReset }) {
+function StepFinal({ preventivo, handleReset, area }) {
   console.log(preventivo)
-  const messageForMail = "Ciao " + preventivo.infoUser.nome + " " + preventivo.infoUser.cognome + ", come da te richiesto, ti confermiamo il prezzo della simulazione di preventivo fatta sul nostro sito";
-  
-    const card = {
-        boxShadow: "0 8px 12px rgba(21, 119, 206, 0.5)",
-        maxWidth: "544px",
-        height: "500px",
-        borderRadius: "16px",
-    }
-  
-    const divSpace = {
+  const messageForMail = "Ciao " + preventivo.infoUser.nome + " " + preventivo.infoUser.cognome + ", come da te richiesto, ti confermiamo il prezzo della simulazione di preventivo fatta sul nostro sito: ";
+
+  const card = {
+    boxShadow: "0 8px 12px rgba(21, 119, 206, 0.5)",
+    maxWidth: "544px",
+    height: "500px",
+    borderRadius: "16px",
+  }
+
+  const divSpace = {
     padding: "4rem",
   };
 
@@ -73,7 +73,7 @@ function StepFinal({ preventivo, handleReset }) {
     color: "#757575",
     fontFamily: "Arial, sans-serif",
     textAlign: "center",
-   
+
   }
 
   const divDescription = {
@@ -89,13 +89,13 @@ function StepFinal({ preventivo, handleReset }) {
   }
 
   const divTextSub = {
-      marginTop: "20px",
-      width: "100%",
-      height: "36px",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
+    marginTop: "20px",
+    width: "100%",
+    height: "36px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   }
 
   const buttonC = {
@@ -106,7 +106,7 @@ function StepFinal({ preventivo, handleReset }) {
     alignItems: "center",
     borderRadius: "32px",
   }
-  
+
   const buttonT = {
     backgroundColor: "transparent",
     display: "flex",
@@ -121,13 +121,28 @@ function StepFinal({ preventivo, handleReset }) {
   }
 
   const Lavorazioni = {
-    SOSTITUZIONE_ISOLANTE: { nome: "Sostituzione Isolante", costo: 130, description: "Migliora l'isolamento termico sostituendo il vecchio materiale isolante con una soluzione più efficiente." },
-    RIFACIMENTO_INTEGRALE: { nome: "Rifacimento Integrale", costo: 200, description: "" },
-    RISTRUTTURAZIONE_COMPLETA: {
-      nome: "Ristrutturazione Completa",
+    "Tegole Portoghesi": {
+      costo: 130,
+      description: "Migliora l'isolamento termico sostituendo il vecchio materiale isolante con una soluzione più efficiente."
+    },
+    "Tegole Marsigliesi": {
+      costo: 200,
+      description: ""
+    },
+    "Coppi": {
       costo: 340,
       description: ""
     },
+    "Pannelli coibentati": {
+      costo: 250,
+      description: ""
+    },
+
+    "Lamiera": {
+      costo: 115,
+      description: ""
+    },
+
   };
 
   const [prezziFiniti, setPrezziFiniti] = useState({
@@ -139,21 +154,16 @@ function StepFinal({ preventivo, handleReset }) {
 
   useEffect(() => {
     if (preventivo) {
-      const superficieTetto = preventivo.infoEdificio.superficieTetto;
-  
-      const prezzoIsolante =
-        superficieTetto * Lavorazioni.SOSTITUZIONE_ISOLANTE.costo;
-      const prezzoRifacimento =
-        superficieTetto * Lavorazioni.RIFACIMENTO_INTEGRALE.costo;
-      const prezzoRistrutturazione =
-        superficieTetto * Lavorazioni.RISTRUTTURAZIONE_COMPLETA.costo;
-  
+      const superficieTetto = area;
+
+      const prezzoFinale =
+        superficieTetto * Lavorazioni[preventivo.infoEdificio].costo;
+
       setPrezziFiniti({
-        finaleIsolante: prezzoIsolante,
-        finaleRifacimentoIntegrale: prezzoRifacimento,
-        finaleRistrutturazione: prezzoRistrutturazione,
+        finaleIsolante: prezzoFinale,
+
       });
-  
+
       setCalculated(true);
     }
   }, [preventivo]);
@@ -161,8 +171,8 @@ function StepFinal({ preventivo, handleReset }) {
   const handleButtonClick = () => {
     const emailData = {
       to_email: preventivo.infoUser.mail, // Indirizzo e-mail del destinatario
-      message: messageForMail + prezziFiniti.finaleIsolante,
-      
+      message: messageForMail + Math.round(prezziFiniti.finaleIsolante) + "€",
+
     };
     console.log(emailData)
     // Invia l'e-mail
@@ -173,39 +183,39 @@ function StepFinal({ preventivo, handleReset }) {
       .catch((error) => {
         console.error("Errore nell'invio dell'e-mail:", error);
       });
-      handleReset()
+    handleReset()
   };
 
   return (
     <div style={divSpace}>
       {calculated && (
         <div className="w-100 d-flex flex-row justify-content-center align-items-center ">
-        <Card style={card}>
-          <CardContent>
-            <div style={divText}>
-              <Typography style={title} component="div">
-                {Lavorazioni.SOSTITUZIONE_ISOLANTE.nome}
-              </Typography>
-            </div>
-            <div style={divTextTitle}>
-              <Typography style={text1} component="div">Prezzo finale</Typography>
-              <Typography style={text} component="div">{prezziFiniti.finaleIsolante} €</Typography>
-            </div>
+          <Card style={card}>
+            <CardContent>
+              <div style={divText}>
+                <Typography style={title} component="div">
+                  {preventivo.infoEdificio}
+                </Typography>
+              </div>
+              <div style={divTextTitle}>
+                <Typography style={text1} component="div">Prezzo finale</Typography>
+                <Typography style={text} component="div">{Math.round(prezziFiniti.finaleIsolante)} €</Typography>
+              </div>
 
-            <div style={divTextSub}>
-            <Typography style={subText} component="div">
-              {Lavorazioni.SOSTITUZIONE_ISOLANTE.costo} €/m²
-              </Typography>
-            </div>
-           <div style={buttonC}>
-            <Button style={buttonT} onClick={handleButtonClick}>
-              RICHIEDI PREVENTIVO
-            </Button>
-            </div>
-          </CardContent>
-        </Card>
+              <div style={divTextSub}>
+                <Typography style={subText} component="div">
+                  {Lavorazioni[preventivo.infoEdificio].costo} €/m²
+                </Typography>
+              </div>
+              <div style={buttonC}>
+                <Button style={buttonT} onClick={handleButtonClick}>
+                  RICHIEDI PREVENTIVO
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
 
-        {/* <Card style={card}>
+          {/* <Card style={card}>
           <CardContent>
             <div style={divText}>
               <Typography style={title} component="div">

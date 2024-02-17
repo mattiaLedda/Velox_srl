@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import imagesGroup from '../images';
 
 function Carousel({ image }) {
     console.log("prodotto: " +  image)
     const [activeIndex, setActiveIndex] = useState(0);
-    const images = [
-        `../public/assets/${image}.jpg`,
-        "../public/assets/fototetti2.webp",
-        "../public/assets/fototetti3.webp"
-    ];
+    const images = imagesGroup[image];
 
     const goToPrev = () => {
         setActiveIndex(activeIndex === 0 ? images.length - 1 : activeIndex - 1);

@@ -90,7 +90,7 @@ export default function StepperProva({ googleMapsData }) {
 
   return (
     
-    <Box sx={{ width: "100%", display: "flex", flexDirection: "column",  justifyContent:"center" , margin:"auto", marginTop: "50px"}}>
+    <Box sx={{ width: "100%", display: googleMapsData > 0 ? "flex" : "none", flexDirection: "column",  justifyContent:"center" , margin:"auto", marginTop: "50px"}}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]} className="m-0">
@@ -104,7 +104,7 @@ export default function StepperProva({ googleMapsData }) {
         {allStepsCompleted() ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-             {<StepFinal preventivo={preventivo} handleReset={handleReset}/>}
+             {<StepFinal preventivo={preventivo} handleReset={handleReset} area={googleMapsData}/>}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Box sx={{ flex: "1 1 auto" }} />
@@ -117,7 +117,7 @@ export default function StepperProva({ googleMapsData }) {
               {activeStep === 0 && <Step1 onComplete={handleStep1Complete} area={googleMapsData} />}
               {activeStep === 1 && <Step2 onCompleteTetti={handleStep2Complete}/>}
               {activeStep === 2 && <Step3 onCompleteStep3={handleStep3Complete}/>}
-              {activeStep === 3 && <Step4 preventivo={preventivo}/>}
+              {activeStep === 3 && <Step4 preventivo={preventivo} area={googleMapsData}/>}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button

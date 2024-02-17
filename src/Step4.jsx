@@ -11,7 +11,7 @@ const accordionStyle = {
 };
 
 const titleStyle = {
-  color: "#1577CE", 
+  color: "#1577CE",
   borderRadius: "16px 16px 0 0", // Bordi superiori arrotondati
   paddingTop: "1rem",
   paddingBottom: "1rem",
@@ -27,12 +27,27 @@ const pStyle = {
 }
 
 function Step4({ preventivo, area }) {
+
+  console.log(preventivo)
   return (
     <div>
 
-<Accordion style={accordionStyle}>
+      <Accordion style={accordionStyle}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} style={titleStyle}>
-          <Typography variant="h4">Informazioni Edificio</Typography>
+          <Typography variant="h4">Lavorazione</Typography>
+        </AccordionSummary>
+        <AccordionDetails style={textStyle}>
+          <Typography variant="h5">Tipologia di lavorazione:</Typography>
+          <br />
+          <Typography variant="h6" style={pStyle}>{preventivo.infoEdificio}  </Typography>
+          <br />
+
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion style={accordionStyle}>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} style={titleStyle}>
+          <Typography variant="h4">Superficie</Typography>
         </AccordionSummary>
         <AccordionDetails style={textStyle}>
           <Typography variant="h5">Superficie tetto:</Typography>
